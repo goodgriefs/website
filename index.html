@@ -9,28 +9,17 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&display=swap');
         
-        :root {
-            --peach: #ff69b4;
-            --peach-light: #ffb07c;
-        }
-        
-        .tail-container { font-family: 'Inter', system-ui, sans-serif; }
+        :root { --peach: #ff69b4; --peach-light: #ffb07c; }
+        body { font-family: 'Inter', system-ui, sans-serif; background: #0f0f17; color: white; margin: 0; overflow-x: hidden; }
         .logo-font { font-family: 'Playfair Display', serif; }
         
-        body.age-verified .main-content { filter: blur(0px); opacity: 1; }
+        body.age-verified .main-content { filter: blur(0px) !important; opacity: 1 !important; transition: all 1s ease; }
         
         .twerk-bg {
-            position: fixed;
-            inset: 0;
-            z-index: -1;
-            pointer-events: none;
-            opacity: 0.12;
-            overflow: hidden;
+            position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: 0.12; overflow: hidden;
         }
         .peach-twerk {
-            position: absolute;
-            font-size: 420px;
-            animation: twerk 0.65s infinite alternate ease-in-out;
+            position: absolute; font-size: 420px; animation: twerk 0.65s infinite alternate ease-in-out;
             filter: drop-shadow(0 0 80px #ff69b4);
         }
         .peach-twerk:nth-child(2) { left: 15%; top: 20%; animation-duration: 0.55s; font-size: 280px; opacity: 0.7; }
@@ -42,29 +31,95 @@
             100% { transform: translateY(0) skewY(-8deg) scale(0.98); }
         }
         
-        .proxy-card {
+        .proxy-card, .draft-card {
             transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
             transform-style: preserve-3d;
+            background: transparent;
+            border: 2px solid rgba(255, 105, 180, 0.25);
+            border-radius: 1.5rem;
+            overflow: hidden;
+            cursor: pointer;
         }
-        .proxy-card:hover {
-            transform: scale(1.18) rotate(3deg) translateY(-20px);
-            box-shadow: 0 0 80px -15px #ff69b4,
-                        0 40px 70px -20px rgb(0 0 0 / 0.6);
+        .proxy-card:hover, .draft-card:hover {
+            transform: scale(1.12) rotate(3deg) translateY(-20px);
+            box-shadow: 0 0 80px -15px #ff69b4, 0 40px 70px -20px rgba(0,0,0,0.6);
+            border-color: rgba(255, 105, 180, 0.6);
         }
         
-        #ageModal {
-            animation: modalPop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
-        
+        #ageModal { animation: modalPop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1); }
         @keyframes modalPop {
             0% { transform: scale(0.6); opacity: 0; }
             100% { transform: scale(1); opacity: 1; }
         }
-        
-        .glow-text { text-shadow: 0 0 30px #ff69b4, 0 0 60px #ff1493; }
+
+        .neon-title {
+            font-size: 5.5rem;
+            line-height: 1;
+            font-weight: 900;
+            letter-spacing: -0.02em;
+            display: block;
+            text-align: center;
+            position: relative;
+            margin: 0.5rem 0;
+            white-space: nowrap;
+            color: #000000;
+        }
+
+        .neon-title span {
+            display: inline-block;
+            position: relative;
+            text-shadow: 
+                0 0 4px rgba(255, 105, 180, 0.7),
+                0 0 8px rgba(255, 105, 180, 0.5),
+                0 0 12px rgba(255, 105, 180, 0.35),
+                0 0 20px rgba(255, 20, 147, 0.25),
+                0 0 30px rgba(255, 20, 147, 0.15);
+            animation: flicker-off var(--flicker-duration) infinite alternate ease-in-out;
+        }
+
+        @keyframes flicker-off {
+            0%, 19.9%, 22%, 62.9%, 64%, 100% { 
+                opacity: 1; 
+                text-shadow: 
+                    0 0 4px rgba(255, 105, 180, 0.7),
+                    0 0 8px rgba(255, 105, 180, 0.5),
+                    0 0 12px rgba(255, 105, 180, 0.35),
+                    0 0 20px rgba(255, 20, 147, 0.25),
+                    0 0 30px rgba(255, 20, 147, 0.15);
+            }
+            20%, 21.9%, 63% { 
+                opacity: 0.75; 
+                text-shadow: 
+                    0 0 2px rgba(255, 105, 180, 0.4),
+                    0 0 4px rgba(255, 105, 180, 0.3);
+            }
+            21% { 
+                opacity: 0.65; 
+                text-shadow: 0 0 1px rgba(255, 105, 180, 0.2); 
+            }
+        }
+
+        .subtext { color: #d1d5db; font-size: 1.5rem; margin-top: 2rem; text-align: center; }
+
+        .social-icon {
+            transition: transform 0.3s ease;
+        }
+        .social-icon:hover {
+            animation: wobble 0.8s ease-in-out;
+        }
+        @keyframes wobble {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(8deg); }
+            50% { transform: rotate(-8deg); }
+            75% { transform: rotate(4deg); }
+        }
+
+        @media (max-width: 768px) {
+            .neon-title { font-size: 3.8rem; letter-spacing: -0.01em; }
+        }
     </style>
 </head>
-<body class="tail-container bg-zinc-950 text-white overflow-x-hidden">
+<body class="bg-zinc-950 text-white overflow-x-hidden">
     
     <div class="twerk-bg">
         <div class="peach-twerk left-1/4 top-1/3">🍑</div>
@@ -72,33 +127,29 @@
         <div class="peach-twerk">🍑</div>
     </div>
 
+    <!-- AGE GATE -->
     <div id="ageModal" class="fixed inset-0 bg-black/95 z-[9999] flex items-center justify-center">
         <div class="max-w-md text-center px-8">
             <div class="text-8xl mb-8 animate-bounce">🍑</div>
             <h1 class="logo-font text-6xl font-black tracking-tighter glow-text mb-4">PEACHY PROXY</h1>
             <div class="text-2xl text-rose-400 font-medium mb-10">18+ ONLY • NSFW CUSTOM MTG CARDS</div>
-            
-            <p class="text-zinc-300 mb-12 text-lg">
-                This site contains adult themes and explicit proxy art.<br>
-                You must be 18 or older to enter.
-            </p>
+            <p class="text-zinc-300 mb-12 text-lg">This site contains adult themes and explicit proxy art.<br>You must be 18 or older to enter.</p>
             
             <div class="flex flex-col gap-5">
-                <button onclick="enterSite()" 
+                <button id="enterBtn" 
                         class="w-full py-7 bg-gradient-to-r from-[#ff69b4] to-[#ff1493] text-3xl font-black rounded-3xl hover:scale-105 active:scale-95 transition-all">
                     YES, I'M PEACHY 🍑
                 </button>
-                <button onclick="leaveSite()" 
+                <button id="leaveBtn" 
                         class="w-full py-6 border-2 border-zinc-400 text-zinc-400 text-xl font-medium rounded-3xl hover:bg-zinc-900 transition-all">
                     NO, TAKE ME AWAY
                 </button>
             </div>
-            
             <div class="mt-10 text-xs text-zinc-500">Honolulu, Hawaii • Made with love</div>
         </div>
     </div>
 
-    <!-- Slimmer sidebar -->
+    <!-- SIDEBAR -->
     <div class="fixed left-0 top-0 bottom-0 w-[187px] bg-zinc-900/95 backdrop-blur-2xl border-r border-[#ff69b4]/30 z-50 flex flex-col">
         <div class="p-6 flex items-center gap-3 border-b border-[#ff69b4]/20">
             <img src="https://twemoji.maxcdn.com/v/14.0.2/72x72/1f351.png" 
@@ -112,29 +163,23 @@
         <nav class="flex-1 px-4 py-8">
             <ul class="space-y-1 text-base">
                 <li onclick="switchPage('home')" class="nav-item flex items-center gap-3 px-5 py-4 rounded-3xl hover:bg-white/10 cursor-pointer active">
-                    <i class="fas fa-home w-5"></i>
-                    <span class="font-medium">Home • Cards</span>
+                    <i class="fas fa-home w-5"></i><span class="font-medium">Home • Cards</span>
                 </li>
                 <li onclick="switchPage('games')" class="nav-item flex items-center gap-3 px-5 py-4 rounded-3xl hover:bg-white/10 cursor-pointer">
-                    <i class="fas fa-gamepad w-5"></i>
-                    <span class="font-medium">Play Games</span>
+                    <i class="fas fa-gamepad w-5"></i><span class="font-medium">Play Games</span>
                 </li>
                 <li onclick="switchPage('decks')" class="nav-item flex items-center gap-3 px-5 py-4 rounded-3xl hover:bg-white/10 cursor-pointer">
-                    <i class="fas fa-layer-group w-5"></i>
-                    <span class="font-medium">Deck Teasers</span>
+                    <i class="fas fa-layer-group w-5"></i><span class="font-medium">Deck Teasers</span>
                 </li>
                 <li onclick="switchPage('social')" class="nav-item flex items-center gap-3 px-5 py-4 rounded-3xl hover:bg-white/10 cursor-pointer">
-                    <i class="fas fa-users w-5"></i>
-                    <span class="font-medium">Socials</span>
+                    <i class="fas fa-users w-5"></i><span class="font-medium">Socials</span>
                 </li>
                 <li onclick="switchPage('recommended')" class="nav-item flex items-center gap-3 px-5 py-4 rounded-3xl hover:bg-white/10 cursor-pointer">
-                    <i class="fas fa-star w-5"></i>
-                    <span class="font-medium">Hyped Sites</span>
+                    <i class="fas fa-star w-5"></i><span class="font-medium">Hyped Sites</span>
                 </li>
             </ul>
         </nav>
         
-        <!-- Smaller Patreon section with twerking peach -->
         <div class="p-4 border-t border-[#ff69b4]/20">
             <a href="https://www.patreon.com/peachyproxy" target="_blank"
                class="block text-center py-3 text-6xl hover:scale-110 hover:rotate-6 transition-all duration-300">
@@ -144,74 +189,375 @@
         </div>
     </div>
 
+    <!-- MAIN CONTENT -->
     <div class="main-content ml-[187px] min-h-screen transition-all duration-700" style="filter: blur(24px); opacity: 0.3;">
         
+        <!-- HOME -->
         <div id="home-page" class="page min-h-screen pt-16">
-            <div class="max-w-6xl mx-auto px-10 py-12">
-                <h2 class="logo-font text-7xl font-black text-center mb-4 glow-text">CHOOSE YOUR PEACH</h2>
-                <p class="text-center text-zinc-400 text-2xl mb-16">Hover to play & feel it pop • Click to claim on Patreon</p>
+            <div class="max-w-7xl mx-auto px-10 py-12">
+                <div class="text-center mb-12">
+                    <div class="neon-title">
+                        <span class="peach" data-text="C" style="--flicker-duration: 4.2s;">C</span>
+                        <span class="peach" data-text="H" style="--flicker-duration: 5.1s;">H</span>
+                        <span class="peach" data-text="O" style="--flicker-duration: 3.8s;">O</span>
+                        <span class="peach" data-text="O" style="--flicker-duration: 4.9s;">O</span>
+                        <span class="peach" data-text="S" style="--flicker-duration: 5.6s;">S</span>
+                        <span class="peach" data-text="E" style="--flicker-duration: 4.5s;">E</span>
+                        <span class="peach" data-text="  ">  </span>
+                        <span class="peach" data-text="Y" style="--flicker-duration: 3.9s;">Y</span>
+                        <span class="peach" data-text="O" style="--flicker-duration: 5.3s;">O</span>
+                        <span class="peach" data-text="U" style="--flicker-duration: 4.7s;">U</span>
+                        <span class="peach" data-text="R" style="--flicker-duration: 5.8s;">R</span>
+                    </div>
+                    <div class="neon-title">
+                        <span class="white" data-text="P" style="--flicker-duration: 4.8s;">P</span>
+                        <span class="white" data-text="E" style="--flicker-duration: 5.2s;">E</span>
+                        <span class="white" data-text="A" style="--flicker-duration: 3.7s;">A</span>
+                        <span class="white" data-text="C" style="--flicker-duration: 4.4s;">C</span>
+                        <span class="white" data-text="H" style="--flicker-duration: 5.9s;">H</span>
+                    </div>
+                    <p class="subtext mt-8">Hover to play & feel it pop • Click to claim on Patreon</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8" id="cardSlots"></div>
+            </div>
+        </div>
+
+        <!-- RECOMMENDED -->
+        <div id="recommended-page" class="page hidden min-h-screen pt-16">
+            <div class="max-w-5xl mx-auto px-10 py-12">
+                <div class="text-center mb-12">
+                    <div class="neon-title">
+                        <span class="peach" data-text="F" style="--flicker-duration: 4.6s;">F</span>
+                        <span class="peach" data-text="O" style="--flicker-duration: 5.4s;">O</span>
+                        <span class="peach" data-text="R" style="--flicker-duration: 3.9s;">R</span>
+                        <span class="peach" data-text=" " style="--flicker-duration: 6s;"> </span>
+                        <span class="peach" data-text="A" style="--flicker-duration: 4.2s;">A</span>
+                        <span class="peach" data-text="L" style="--flicker-duration: 5.7s;">L</span>
+                        <span class="peach" data-text="L" style="--flicker-duration: 4.1s;">L</span>
+                        <span class="peach" data-text=" " style="--flicker-duration: 5s;"> </span>
+                        <span class="peach" data-text="Y" style="--flicker-duration: 3.6s;">Y</span>
+                        <span class="peach" data-text="O" style="--flicker-duration: 5.5s;">O</span>
+                        <span class="peach" data-text="U" style="--flicker-duration: 4.8s;">U</span>
+                        <span class="peach" data-text="R" style="--flicker-duration: 5.3s;">R</span>
+                    </div>
+                    <div class="neon-title">
+                        <span class="white" data-text="P" style="--flicker-duration: 4.3s;">P</span>
+                        <span class="white" data-text="R" style="--flicker-duration: 5.1s;">R</span>
+                        <span class="white" data-text="I" style="--flicker-duration: 3.8s;">I</span>
+                        <span class="white" data-text="N" style="--flicker-duration: 4.9s;">N</span>
+                        <span class="white" data-text="T" style="--flicker-duration: 5.6s;">T</span>
+                        <span class="white" data-text="I" style="--flicker-duration: 4.4s;">I</span>
+                        <span class="white" data-text="N" style="--flicker-duration: 5.2s;">N</span>
+                        <span class="white" data-text="G" style="--flicker-duration: 3.7s;">G</span>
+                        <span class="white" data-text=" " style="--flicker-duration: 6s;"> </span>
+                        <span class="white" data-text="N" style="--flicker-duration: 4.7s;">N</span>
+                        <span class="white" data-text="E" style="--flicker-duration: 5.4s;">E</span>
+                        <span class="white" data-text="E" style="--flicker-duration: 4.0s;">E</span>
+                        <span class="white" data-text="D" style="--flicker-duration: 5.8s;">D</span>
+                        <span class="white" data-text="S" style="--flicker-duration: 4.5s;">S</span>
+                    </div>
+                    <p class="text-zinc-400 text-xl mt-8">Peach-approved partners 🍑</p>
+                </div>
                 
-                <div class="grid grid-cols-2 gap-8" id="cardSlots">
-                    <!-- Cards here -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <a href="https://www.printingproxies.com/" target="_blank" class="bg-gradient-to-br from-[#ff69b4]/10 to-[#ff1493]/10 border-2 border-[#ff69b4]/40 hover:border-[#ff69b4] hover:shadow-[0_0_25px_rgba(255,105,180,0.4)] rounded-3xl p-8 transition-all group backdrop-blur-sm">
+                        <div class="text-6xl mb-6 drop-shadow-lg text-[#ff69b4]">🖨️</div>
+                        <div class="text-3xl font-bold mb-2 text-white drop-shadow-md">Printing Proxies</div>
+                        <div class="text-rose-400 text-sm mb-4 font-medium">NSFW PRINTING SPECIALIST</div>
+                        <p class="text-zinc-300 group-hover:text-[#ffb07c] transition-colors">High-quality MTG proxies with full NSFW support. Fast & discreet.</p>
+                    </a>
+                    <a href="https://mpcfill.com/" target="_blank" class="bg-gradient-to-br from-[#ff69b4]/10 to-[#ff1493]/10 border-2 border-[#ff69b4]/40 hover:border-[#ff69b4] hover:shadow-[0_0_25px_rgba(255,105,180,0.4)] rounded-3xl p-8 transition-all group backdrop-blur-sm">
+                        <div class="text-6xl mb-6 drop-shadow-lg text-[#ff69b4]">📦</div>
+                        <div class="text-3xl font-bold mb-2 text-white drop-shadow-md">MPC Fill</div>
+                        <p class="text-zinc-300 group-hover:text-[#ffb07c] transition-colors">The easiest way to fill your MPC order. Drag, drop, done.</p>
+                    </a>
+                    <a href="https://notmpc.com/" target="_blank" class="bg-gradient-to-br from-[#ff69b4]/10 to-[#ff1493]/10 border-2 border-[#ff69b4]/40 hover:border-[#ff69b4] hover:shadow-[0_0_25px_rgba(255,105,180,0.4)] rounded-3xl p-8 transition-all group backdrop-blur-sm">
+                        <div class="text-6xl mb-6 drop-shadow-lg text-[#ff69b4]">🔥</div>
+                        <div class="text-3xl font-bold mb-2 text-white drop-shadow-md">Not MPC</div>
+                        <p class="text-zinc-300 group-hover:text-[#ffb07c] transition-colors">Alternative proxy printing service with great quality and speed.</p>
+                    </a>
                 </div>
             </div>
         </div>
 
-        <!-- Games, Decks, Social, Recommended pages unchanged – omitted for brevity -->
+        <!-- SOCIALS -->
+        <div id="social-page" class="page hidden min-h-screen pt-16 flex items-center justify-center">
+            <div class="text-center max-w-4xl mx-auto">
+                <div class="neon-title mb-16" style="white-space: nowrap;">
+                    <span class="peach" data-text="A" style="--flicker-duration: 4.2s;">A</span>
+                    <span class="peach" data-text="L" style="--flicker-duration: 5.1s;">L</span>
+                    <span class="peach" data-text="L" style="--flicker-duration: 3.8s;">L</span>
+                    <span class="peach" data-text=" " style="--flicker-duration: 6s;"> </span>
+                    <span class="peach" data-text="T" style="--flicker-duration: 4.9s;">T</span>
+                    <span class="peach" data-text="H" style="--flicker-duration: 5.6s;">H</span>
+                    <span class="peach" data-text="E" style="--flicker-duration: 4.5s;">E</span>
+                    <span class="peach" data-text=" " style="--flicker-duration: 5s;"> </span>
+                    <span class="white" data-text="P" style="--flicker-duration: 4.8s;">P</span>
+                    <span class="white" data-text="E" style="--flicker-duration: 5.2s;">E</span>
+                    <span class="white" data-text="A" style="--flicker-duration: 3.7s;">A</span>
+                    <span class="white" data-text="C" style="--flicker-duration: 4.4s;">C</span>
+                    <span class="white" data-text="H" style="--flicker-duration: 5.9s;">H</span>
+                    <span class="white" data-text="Y" style="--flicker-duration: 4.7s;">Y</span>
+                    <span class="white" data-text=" " style="--flicker-duration: 6s;"> </span>
+                    <span class="white" data-text="P" style="--flicker-duration: 4.3s;">P</span>
+                    <span class="white" data-text="I" style="--flicker-duration: 5.1s;">I</span>
+                    <span class="white" data-text="E" style="--flicker-duration: 3.8s;">E</span>
+                </div>
+                
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-10 text-8xl">
+                    <a href="https://www.patreon.com/peachyproxy" target="_blank" class="social-icon hover:scale-125 transition flex flex-col items-center gap-3">
+                        <span class="text-[#ff69b4]">P</span><span class="text-sm text-zinc-400">Patreon</span>
+                    </a>
+                    <a href="https://x.com/PeachyProxy" target="_blank" class="social-icon hover:scale-125 transition flex flex-col items-center gap-3">
+                        <span class="text-[#ff69b4]">𝕏</span><span class="text-sm text-zinc-400">X / Twitter</span>
+                    </a>
+                    <a href="https://www.facebook.com/peachyproxies" target="_blank" class="social-icon hover:scale-125 transition flex flex-col items-center gap-3">
+                        <span class="text-[#ff69b4]">f</span><span class="text-sm text-zinc-400">Facebook</span>
+                    </a>
+                    <a href="https://www.instagram.com/peachyprox" target="_blank" class="social-icon hover:scale-125 transition flex flex-col items-center gap-3">
+                        <span class="text-[#ff69b4]">📸</span><span class="text-sm text-zinc-400">Instagram</span>
+                    </a>
+                    <a href="https://www.tiktok.com/@peachyproxy" target="_blank" class="social-icon hover:scale-125 transition flex flex-col items-center gap-3">
+                        <span class="text-[#ff69b4]">♪</span><span class="text-sm text-zinc-400">TikTok</span>
+                    </a>
+                    <a href="https://youtu.be/Aq5WXmQQooo?si=RRAGKhhc5988oqvo" target="_blank" class="social-icon hover:scale-125 transition flex flex-col items-center gap-3">
+                        <img src="https://twemoji.maxcdn.com/v/14.0.2/72x72/1f351.png" class="w-24 h-24" alt="Surprise">
+                        <span class="text-sm text-zinc-400">Surprise 🍑</span>
+                    </a>
+                </div>
+            </div>
+        </div>
 
+        <!-- GAMES – PROXY DRAFT SIMULATOR -->
+        <div id="games-page" class="page hidden min-h-screen pt-16">
+            <div class="max-w-5xl mx-auto px-10 py-12 text-center">
+                <div class="neon-title mb-12">
+                    <span class="peach" data-text="P" style="--flicker-duration: 4.2s;">P</span>
+                    <span class="peach" data-text="R" style="--flicker-duration: 5.1s;">R</span>
+                    <span class="peach" data-text="O" style="--flicker-duration: 3.8s;">O</span>
+                    <span class="peach" data-text="X" style="--flicker-duration: 4.9s;">X</span>
+                    <span class="peach" data-text="Y" style="--flicker-duration: 5.6s;">Y</span>
+                    <span class="peach" data-text=" " style="--flicker-duration: 6s;"> </span>
+                    <span class="white" data-text="D" style="--flicker-duration: 4.5s;">D</span>
+                    <span class="white" data-text="R" style="--flicker-duration: 5.3s;">R</span>
+                    <span class="white" data-text="A" style="--flicker-duration: 3.9s;">A</span>
+                    <span class="white" data-text="F" style="--flicker-duration: 4.7s;">F</span>
+                    <span class="white" data-text="T" style="--flicker-duration: 5.2s;">T</span>
+                </div>
+                <p class="text-zinc-300 text-xl mb-10">Crack packs, build your dream proxy deck 🍑</p>
+
+                <button id="draftBtn" class="px-12 py-6 bg-gradient-to-r from-[#ff69b4] to-[#ff1493] text-black font-black text-3xl rounded-3xl hover:scale-105 transition-all shadow-2xl mb-12">
+                    OPEN PACK 🍑
+                </button>
+
+                <div id="packArea" class="grid grid-cols-3 gap-8 mb-16 min-h-[520px]"></div>
+
+                <div class="text-left">
+                    <h3 class="text-3xl font-bold mb-6 text-[#ffb07c]">YOUR DRAFTED DECK</h3>
+                    <div id="deckArea" class="grid grid-cols-3 md:grid-cols-6 gap-6"></div>
+                    <p id="draftMessage" class="text-xl mt-8 text-zinc-300"></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Decks placeholder -->
+        <div id="decks-page" class="page hidden min-h-screen pt-16 bg-zinc-950">Deck teasers coming soon...</div>
     </div>
 
     <script>
         const peachCards = [
-            { title: "Krenko, Mob Boss", video: "https://video.twimg.com/amplify_video/2028727590568243200/vid/avc1/320x426/wrStrxm_nNnXEPbJ.mp4?tag=24", color: "#ff69b4" },
-            { title: "Tifa Lockhart", video: "https://video.twimg.com/amplify_video/2028747352438378496/vid/avc1/320x424/P950ScTqeVTpDUmg.mp4?tag=24", color: "#ff1493" },
-            { title: "The Ur-Dragon", video: "https://video.twimg.com/amplify_video/2028747228735774720/vid/avc1/320x424/8aihYcQMzigNG810.mp4?tag=24", color: "#ffb07c" },
-            { title: "Y'shtola, Night's Blessed", video: "https://video.twimg.com/amplify_video/2028747763354329088/vid/avc1/320x424/DgeobI2A48ywBpwi.mp4?tag=24", color: "#ff69b4" }
+            { title: "Krenko, Mob Boss", video: "https://video.twimg.com/amplify_video/2028727590568243200/vid/avc1/320x426/wrStrxm_nNnXEPbJ.mp4?tag=24" },
+            { title: "Tifa Lockhart", video: "https://video.twimg.com/amplify_video/2028747352438378496/vid/avc1/320x424/P950ScTqeVTpDUmg.mp4?tag=24" },
+            { title: "The Ur-Dragon", video: "https://video.twimg.com/amplify_video/2028747228735774720/vid/avc1/320x424/8aihYcQMzigNG810.mp4?tag=24" },
+            { title: "Y'shtola, Night's Blessed", video: "https://video.twimg.com/amplify_video/2028747763354329088/vid/avc1/320x424/DgeobI2A48ywBpwi.mp4?tag=24" },
+            { title: "Chatterfang, Squirrel General", video: "https://video.twimg.com/amplify_video/2028755068837924864/vid/avc1/320x424/nFBCV9Pjekh4NPW8.mp4?tag=24" },
+            { title: "Koma, Cosmos Serpent", video: "https://video.twimg.com/amplify_video/2028755542504845312/vid/avc1/320x424/3eA4tX6cRTH7CeOi.mp4?tag=24" }
         ];
+
+        let draftedCards = [];
+
+        function getRandomCards(count = 3) {
+            const shuffled = [...cardPool].sort(() => 0.5 - Math.random());
+            return shuffled.slice(0, count);
+        }
+
+        function renderPack() {
+            console.log("OPEN PACK clicked – generating pack");
+            const packArea = document.getElementById('packArea');
+            packArea.innerHTML = '';
+            const pack = getRandomCards(3);
+            pack.forEach(card => {
+                const div = document.createElement('div');
+                div.className = `draft-card relative group`;
+                div.innerHTML = `
+                    <img src="${card.image}" class="w-full h-[520px] object-cover rounded-3xl" alt="${card.title}">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent rounded-3xl"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-8">
+                        <div class="text-[#ffb07c] text-xs tracking-[3px]">DRAFT PICK</div>
+                        <div class="text-4xl font-black logo-font mt-2 leading-none">${card.title}</div>
+                    </div>
+                `;
+                div.onclick = () => {
+                    draftedCards.push(card);
+                    renderDeck();
+                    if (packArea.contains(div)) packArea.removeChild(div);
+                    checkDraftComplete();
+                };
+                packArea.appendChild(div);
+            });
+        }
+
+        function renderDeck() {
+            const deckArea = document.getElementById('deckArea');
+            deckArea.innerHTML = '';
+            draftedCards.forEach(card => {
+                const div = document.createElement('div');
+                div.className = `proxy-card relative`;
+                div.innerHTML = `
+                    <img src="${card.image}" class="w-full h-[260px] object-cover rounded-3xl" alt="${card.title}">
+                    <div class="absolute bottom-0 left-0 right-0 p-4 bg-black/60 rounded-b-3xl">
+                        <div class="text-[#ffb07c] text-xs">${card.title}</div>
+                    </div>
+                `;
+                deckArea.appendChild(div);
+            });
+        }
+
+        function checkDraftComplete() {
+            if (draftedCards.length >= 9) {
+                const message = document.getElementById('draftMessage');
+                const rating = Math.floor(Math.random() * 5) + 6;
+                message.innerHTML = `Deck complete! Power level: <span class="text-[#ff69b4] font-bold">${rating}/10</span> peaches 🍑<br>You're ready to dominate!`;
+                peachConfetti(); // explosion on draft victory
+            }
+        }
+
+        // Peach explosion (always available, no strict stack limit for page switches)
+        let peachCanvas = null;
+        let peachCtx = null;
+
+        function initPeachCanvas() {
+            if (!peachCanvas) {
+                peachCanvas = document.createElement('canvas');
+                peachCanvas.style.cssText = 'position:fixed;inset:0;z-index:99999;pointer-events:none';
+                peachCtx = peachCanvas.getContext('2d');
+            }
+        }
+
+        function peachConfetti() {
+            document.body.appendChild(peachCanvas);
+            peachCanvas.width = innerWidth;
+            peachCanvas.height = innerHeight;
+            peachCtx.clearRect(0, 0, peachCanvas.width, peachCanvas.height);
+
+            const pieces = [];
+            for (let i = 0; i < 70; i++) {
+                pieces.push({
+                    x: Math.random() * peachCanvas.width,
+                    y: Math.random() * peachCanvas.height - 300,
+                    size: Math.random() * 32 + 18,
+                    speed: Math.random() * 10 + 9,
+                    angle: Math.random() * Math.PI * 2,
+                    rot: Math.random() * 0.12 - 0.06
+                });
+            }
+
+            let frame = 0;
+            function draw() {
+                peachCtx.clearRect(0, 0, peachCanvas.width, peachCanvas.height);
+                let alive = false;
+                pieces.forEach(p => {
+                    p.y += p.speed;
+                    p.x += Math.sin(p.angle) * 2.5;
+                    p.angle += p.rot;
+                    peachCtx.save();
+                    peachCtx.translate(p.x, p.y);
+                    peachCtx.rotate(frame * p.rot);
+                    peachCtx.font = `${p.size}px serif`;
+                    peachCtx.fillText('🍑', 0, 0);
+                    peachCtx.restore();
+                    if (p.y < peachCanvas.height + 120) alive = true;
+                });
+                frame++;
+                if (alive) requestAnimationFrame(draw);
+                else peachCanvas.remove();
+            }
+            setTimeout(draw, 16);
+        }
 
         function createCards() {
             const container = document.getElementById('cardSlots');
             container.innerHTML = '';
-            
-            peachCards.forEach((card) => {
+            peachCards.forEach(card => {
                 const div = document.createElement('div');
-                div.className = `proxy-card bg-zinc-900 rounded-3xl overflow-hidden cursor-pointer relative group h-[520px]`;
+                div.className = `proxy-card rounded-3xl overflow-hidden cursor-pointer relative group h-[520px]`;
                 div.innerHTML = `
-                    <video id="vid-${card.title.replace(/\s+/g,'')}" loop muted playsinline class="absolute inset-0 w-full h-full object-contain transition-all group-hover:brightness-110">
+                    <video loop muted playsinline class="absolute inset-0 w-full h-full object-contain transition-all group-hover:brightness-110">
                         <source src="${card.video}" type="video/mp4">
                     </video>
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-                    <div class="absolute bottom-0 left-0 right-0 p-10">
-                        <div class="text-[#ffb07c] text-sm tracking-[3px]">PATREON EXCLUSIVE</div>
-                        <div class="text-5xl font-black logo-font mt-2 leading-none">${card.title}</div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-8">
+                        <div class="text-[#ffb07c] text-xs tracking-[3px]">PATREON EXCLUSIVE</div>
+                        <div class="text-4xl font-black logo-font mt-2 leading-none">${card.title}</div>
                     </div>
-                    <div onclick="event.stopImmediatePropagation(); window.open('https://www.patreon.com/peachyproxy', '_blank')" 
-                         class="absolute inset-0"></div>
+                    <div class="absolute inset-0" onclick="window.open('https://www.patreon.com/peachyproxy', '_blank')"></div>
                 `;
-
-                const videoEl = div.querySelector('video');
-
-                div.addEventListener('mouseenter', () => {
-                    videoEl.play().catch(() => {}); // Silent catch for autoplay policies
-                    document.querySelectorAll('.peach-twerk').forEach(p => p.style.animationDuration = '0.35s');
+                const video = div.querySelector('video');
+                div.addEventListener('mouseenter', () => { 
+                    video.play().catch(() => {}); 
+                    document.querySelectorAll('.peach-twerk').forEach(p => p.style.animationDuration = '0.35s'); 
                 });
-
-                div.addEventListener('mouseleave', () => {
-                    videoEl.pause();
-                    videoEl.currentTime = 0; // Reset to start for next hover
-                    document.querySelectorAll('.peach-twerk').forEach(p => p.style.animationDuration = '');
+                div.addEventListener('mouseleave', () => { 
+                    video.pause(); 
+                    video.currentTime = 0; 
+                    document.querySelectorAll('.peach-twerk').forEach(p => p.style.animationDuration = ''); 
                 });
-
                 container.appendChild(div);
             });
         }
 
-        // ... (rest of script: enterSite, switchPage, peachConfetti, etc. unchanged)
+        function enterSite() {
+            console.log("YES button clicked – entering site");
+            const modal = document.getElementById('ageModal');
+            modal.style.transition = 'opacity 1s ease, transform 1s ease';
+            modal.style.opacity = '0';
+            modal.style.transform = 'scale(0.8)';
+            setTimeout(() => {
+                modal.remove();
+                document.body.classList.add('age-verified');
+                document.querySelector('.main-content').style.filter = 'none';
+                document.querySelector('.main-content').style.opacity = '1';
+                peachConfetti(); // explosion on entry
+            }, 800);
+        }
+
+        function leaveSite() {
+            console.log("NO button clicked – redirecting");
+            window.location.href = "https://www.google.com";
+        }
+
+        function switchPage(page) {
+            document.querySelectorAll('.page').forEach(p => p.classList.add('hidden'));
+            document.getElementById(page + '-page').classList.remove('hidden');
+            
+            document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active', 'bg-white/10'));
+            const active = Array.from(document.querySelectorAll('.nav-item')).find(li => li.getAttribute('onclick').includes(`'${page}'`));
+            if (active) active.classList.add('active', 'bg-white/10');
+
+            // Explosion on EVERY page switch (including home if wanted, but keeping non-home only)
+            if (page !== 'home') {
+                peachConfetti();
+            }
+        }
 
         window.onload = function() {
+            initPeachCanvas();
             createCards();
-            // buildGame(); switchPage('home'); etc.
-            console.log('%c🍑 Tweaks applied: smaller logo text, twerking peach Patreon, hover-only videos, better fit', 'color:#ff69b4; font-weight:bold');
+            document.getElementById('enterBtn').addEventListener('click', enterSite);
+            document.getElementById('leaveBtn').addEventListener('click', leaveSite);
+            document.getElementById('draftBtn').addEventListener('click', renderPack);
+            switchPage('home');
+            console.log('%c🍑 Peach explosion restored everywhere + draft button fixed!', 'color:#ff69b4; font-weight:bold');
         };
     </script>
 </body>
