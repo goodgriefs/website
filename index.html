@@ -103,51 +103,53 @@
         </div>
     </div>
 
-    <!-- SIDEBAR -->
-    <div class="fixed left-0 top-0 bottom-0 w-72 bg-zinc-900/95 backdrop-blur-2xl border-r border-[#ff69b4]/30 z-50 flex flex-col">
-        <div class="p-8 flex items-center gap-4 border-b border-[#ff69b4]/20">
-            <div class="w-12 h-12 bg-gradient-to-br from-[#ff69b4] to-[#ff1493] rounded-2xl flex items-center justify-center text-5xl shadow-xl">🍑</div>
+    <!-- SIDEBAR (now 35% slimmer) -->
+    <div class="fixed left-0 top-0 bottom-0 w-[187px] bg-zinc-900/95 backdrop-blur-2xl border-r border-[#ff69b4]/30 z-50 flex flex-col">
+        <div class="p-6 flex items-center gap-3 border-b border-[#ff69b4]/20">
+            <!-- NEW PEACH EMBLEM (uploaded Twemoji peach) -->
+            <img src="https://twemoji.maxcdn.com/v/14.0.2/72x72/1f351.png" 
+                 class="w-11 h-11 rounded-2xl shadow-xl" alt="Peachy Proxy">
             <div>
-                <h1 class="logo-font text-4xl font-black tracking-tighter text-[#ffb07c]">PEACHY</h1>
+                <h1 class="logo-font text-3xl font-black tracking-tighter text-[#ffb07c]">PEACHY</h1>
                 <p class="text-xs text-rose-300 -mt-1">PROXY</p>
             </div>
         </div>
         
-        <nav class="flex-1 px-6 py-10">
-            <ul class="space-y-2 text-lg">
-                <li onclick="switchPage('home')" class="nav-item flex items-center gap-4 px-6 py-5 rounded-3xl hover:bg-white/10 cursor-pointer active">
-                    <i class="fas fa-home w-6"></i>
+        <nav class="flex-1 px-4 py-8">
+            <ul class="space-y-1 text-base">
+                <li onclick="switchPage('home')" class="nav-item flex items-center gap-3 px-5 py-4 rounded-3xl hover:bg-white/10 cursor-pointer active">
+                    <i class="fas fa-home w-5"></i>
                     <span class="font-medium">Home • Cards</span>
                 </li>
-                <li onclick="switchPage('games')" class="nav-item flex items-center gap-4 px-6 py-5 rounded-3xl hover:bg-white/10 cursor-pointer">
-                    <i class="fas fa-gamepad w-6"></i>
+                <li onclick="switchPage('games')" class="nav-item flex items-center gap-3 px-5 py-4 rounded-3xl hover:bg-white/10 cursor-pointer">
+                    <i class="fas fa-gamepad w-5"></i>
                     <span class="font-medium">Play Games</span>
                 </li>
-                <li onclick="switchPage('decks')" class="nav-item flex items-center gap-4 px-6 py-5 rounded-3xl hover:bg-white/10 cursor-pointer">
-                    <i class="fas fa-layer-group w-6"></i>
+                <li onclick="switchPage('decks')" class="nav-item flex items-center gap-3 px-5 py-4 rounded-3xl hover:bg-white/10 cursor-pointer">
+                    <i class="fas fa-layer-group w-5"></i>
                     <span class="font-medium">Deck Teasers</span>
                 </li>
-                <li onclick="switchPage('social')" class="nav-item flex items-center gap-4 px-6 py-5 rounded-3xl hover:bg-white/10 cursor-pointer">
-                    <i class="fas fa-users w-6"></i>
+                <li onclick="switchPage('social')" class="nav-item flex items-center gap-3 px-5 py-4 rounded-3xl hover:bg-white/10 cursor-pointer">
+                    <i class="fas fa-users w-5"></i>
                     <span class="font-medium">Socials</span>
                 </li>
-                <li onclick="switchPage('recommended')" class="nav-item flex items-center gap-4 px-6 py-5 rounded-3xl hover:bg-white/10 cursor-pointer">
-                    <i class="fas fa-star w-6"></i>
+                <li onclick="switchPage('recommended')" class="nav-item flex items-center gap-3 px-5 py-4 rounded-3xl hover:bg-white/10 cursor-pointer">
+                    <i class="fas fa-star w-5"></i>
                     <span class="font-medium">Hyped Sites</span>
                 </li>
             </ul>
         </nav>
         
-        <div class="p-8 border-t border-[#ff69b4]/20">
+        <div class="p-6 border-t border-[#ff69b4]/20">
             <a href="https://www.patreon.com/peachyproxy" target="_blank"
-               class="block text-center py-6 bg-gradient-to-r from-[#ff69b4] to-[#ff1493] text-black font-black text-2xl rounded-3xl hover:scale-105 transition-all">
+               class="block text-center py-5 bg-gradient-to-r from-[#ff69b4] to-[#ff1493] text-black font-black text-xl rounded-3xl hover:scale-105 transition-all">
                 JOIN PATREON
             </a>
         </div>
     </div>
 
-    <!-- MAIN CONTENT AREA -->
-    <div class="main-content ml-72 min-h-screen transition-all duration-700" style="filter: blur(24px); opacity: 0.3;">
+    <!-- MAIN CONTENT AREA (shifted to match slimmer sidebar) -->
+    <div class="main-content ml-[187px] min-h-screen transition-all duration-700" style="filter: blur(24px); opacity: 0.3;">
         
         <!-- HOME / CARDS PAGE -->
         <div id="home-page" class="page min-h-screen pt-16">
@@ -234,7 +236,6 @@
             <div class="max-w-4xl mx-auto px-10 py-12">
                 <h2 class="logo-font text-6xl font-black text-center mb-16">Sites I Hype</h2>
                 <div class="grid grid-cols-2 gap-8">
-                    <!-- Edit these with your real links -->
                     <a href="#" class="block bg-zinc-900 rounded-3xl p-8 hover:ring-4 hover:ring-[#ff69b4]/50 transition">
                         <div class="text-4xl mb-6">🔥</div>
                         <div class="text-2xl font-bold">Proxy Palace</div>
@@ -255,16 +256,28 @@
         // Tailwind ready
         function initTailwind() { /* CDN handles it */ }
 
-        // UPDATED CARD LIST — FIRST ONE IS NOW YOUR REAL KRENKO CLIP
+        // FULLY UPDATED CARDS (all 4 now use your real Grok videos)
         const peachCards = [
             { 
                 title: "Krenko, Mob Boss", 
                 video: "https://video.twimg.com/amplify_video/2028727590568243200/vid/avc1/320x426/wrStrxm_nNnXEPbJ.mp4?tag=24",
                 color: "#ff69b4" 
             },
-            { title: "Twerking Titan", video: "https://assets.mixkit.co/videos/preview/342/342-small.mp4", color: "#ff1493" },
-            { title: "Hawaiian Siren", video: "https://assets.mixkit.co/videos/preview/754/754-small.mp4", color: "#ffb07c" },
-            { title: "NSFW Lich Peach", video: "https://assets.mixkit.co/videos/preview/143/143-small.mp4", color: "#ff69b4" }
+            { 
+                title: "Tifa Lockhart", 
+                video: "https://video.twimg.com/amplify_video/2028747352438378496/vid/avc1/320x424/P950ScTqeVTpDUmg.mp4?tag=24",
+                color: "#ff1493" 
+            },
+            { 
+                title: "The Ur-Dragon", 
+                video: "https://video.twimg.com/amplify_video/2028747228735774720/vid/avc1/320x424/8aihYcQMzigNG810.mp4?tag=24",
+                color: "#ffb07c" 
+            },
+            { 
+                title: "Y'shtola, Night's Blessed", 
+                video: "https://video.twimg.com/amplify_video/2028747763354329088/vid/avc1/320x424/DgeobI2A48ywBpwi.mp4?tag=24",
+                color: "#ff69b4" 
+            }
         ]
 
         function createCards() {
@@ -286,23 +299,18 @@
                     <div onclick="event.stopImmediatePropagation(); window.open('https://www.patreon.com/peachyproxy', '_blank')" 
                          class="absolute inset-0"></div>
                 `
-                // Hover makes background twerk faster
                 div.addEventListener('mouseenter', () => {
-                    document.querySelectorAll('.peach-twerk').forEach(p => {
-                        p.style.animationDuration = '0.35s'
-                    })
+                    document.querySelectorAll('.peach-twerk').forEach(p => p.style.animationDuration = '0.35s')
                 })
                 div.addEventListener('mouseleave', () => {
-                    document.querySelectorAll('.peach-twerk').forEach(p => {
-                        p.style.animationDuration = ''
-                    })
+                    document.querySelectorAll('.peach-twerk').forEach(p => p.style.animationDuration = '')
                 })
                 
                 container.appendChild(div)
             })
         }
 
-        // Memory game (peach version)
+        // Memory game (unchanged)
         let flipped = [], matched = 0, moves = 0
         const peachImages = [
             "https://picsum.photos/id/1015/300/420",
@@ -370,7 +378,6 @@
 
         function resetGame() { buildGame() }
 
-        // Peach confetti explosion
         function peachConfetti() {
             const c = document.createElement('canvas')
             c.style.cssText = 'position:fixed;inset:0;z-index:99999;pointer-events:none'
@@ -416,7 +423,6 @@
             draw()
         }
 
-        // Page switching
         function switchPage(page) {
             document.querySelectorAll('.page').forEach(p => p.classList.add('hidden'))
             document.getElementById(page + '-page').classList.remove('hidden')
@@ -428,7 +434,6 @@
             if (activeNav) activeNav.classList.add('active', 'bg-white/10')
         }
 
-        // AGE GATE
         function enterSite() {
             const modal = document.getElementById('ageModal')
             modal.style.transition = 'all 1.2s cubic-bezier(0.4, 0, 1, 1)'
@@ -448,14 +453,13 @@
             window.location.href = "https://www.google.com"
         }
 
-        // INIT
         window.onload = function() {
             initTailwind()
             createCards()
             buildGame()
             switchPage('home')
             
-            console.log('%c🍑 Krenko, Mob Boss video loaded! Send the next clip link whenever ready.', 'color:#ff69b4; font-size:14px; font-weight:bold')
+            console.log('%c🍑 All 4 cards + slimmer sidebar + new peach logo loaded!', 'color:#ff69b4; font-size:14px; font-weight:bold')
         }
     </script>
 </body>
