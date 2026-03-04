@@ -41,9 +41,9 @@
             cursor: pointer;
         }
         .proxy-card:hover {
-            transform: scale(1.12) rotate(3deg) translateY(-20px);
-            box-shadow: 0 0 80px -15px #ff69b4, 0 40px 70px -20px rgba(0,0,0,0.6);
-            border-color: rgba(255, 105, 180, 0.6);
+            transform: scale(1.15) rotate(6deg) translateY(-20px);
+            box-shadow: 0 0 60px rgba(255, 105, 180, 0.8), 0 40px 70px -20px rgba(0,0,0,0.6);
+            border-color: rgba(255, 105, 180, 0.8);
         }
         
         #ageModal { animation: modalPop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1); }
@@ -78,25 +78,9 @@
         }
 
         @keyframes flicker-off {
-            0%, 19.9%, 22%, 62.9%, 64%, 100% { 
-                opacity: 1; 
-                text-shadow: 
-                    0 0 4px rgba(255, 105, 180, 0.7),
-                    0 0 8px rgba(255, 105, 180, 0.5),
-                    0 0 12px rgba(255, 105, 180, 0.35),
-                    0 0 20px rgba(255, 20, 147, 0.25),
-                    0 0 30px rgba(255, 20, 147, 0.15);
-            }
-            20%, 21.9%, 63% { 
-                opacity: 0.75; 
-                text-shadow: 
-                    0 0 2px rgba(255, 105, 180, 0.4),
-                    0 0 4px rgba(255, 105, 180, 0.3);
-            }
-            21% { 
-                opacity: 0.65; 
-                text-shadow: 0 0 1px rgba(255, 105, 180, 0.2); 
-            }
+            0%, 19.9%, 22%, 62.9%, 64%, 100% { opacity: 1; text-shadow: 0 0 4px rgba(255, 105, 180, 0.7),0 0 8px rgba(255, 105, 180, 0.5),0 0 12px rgba(255, 105, 180, 0.35),0 0 20px rgba(255, 20, 147, 0.25),0 0 30px rgba(255, 20, 147, 0.15); }
+            20%, 21.9%, 63% { opacity: 0.75; text-shadow: 0 0 2px rgba(255, 105, 180, 0.4),0 0 4px rgba(255, 105, 180, 0.3); }
+            21% { opacity: 0.65; text-shadow: 0 0 1px rgba(255, 105, 180, 0.2); }
         }
 
         .subtext { color: #d1d5db; font-size: 1.5rem; margin-top: 2rem; text-align: center; }
@@ -136,11 +120,11 @@
             <p class="text-zinc-300 mb-12 text-lg">This site contains adult themes and explicit proxy art.<br>You must be 18 or older to enter.</p>
             
             <div class="flex flex-col gap-5">
-                <button id="enterBtn" onclick="enterSite()"
+                <button id="enterBtn" 
                         class="w-full py-7 bg-gradient-to-r from-[#ff69b4] to-[#ff1493] text-3xl font-black rounded-3xl hover:scale-105 active:scale-95 transition-all">
                     YES, I'M PEACHY 🍑
                 </button>
-                <button id="leaveBtn" onclick="leaveSite()"
+                <button id="leaveBtn" 
                         class="w-full py-6 border-2 border-zinc-400 text-zinc-400 text-xl font-medium rounded-3xl hover:bg-zinc-900 transition-all">
                     NO, TAKE ME AWAY
                 </button>
@@ -192,7 +176,7 @@
     <!-- MAIN CONTENT -->
     <div class="main-content ml-[187px] min-h-screen transition-all duration-700" style="filter: blur(24px); opacity: 0.3;">
         
-        <!-- HOME -->
+        <!-- HOME – static cards with enhanced hover -->
         <div id="home-page" class="page min-h-screen pt-16">
             <div class="max-w-7xl mx-auto px-10 py-12">
                 <div class="text-center mb-12">
@@ -216,13 +200,13 @@
                         <span class="white" data-text="C" style="--flicker-duration: 4.4s;">C</span>
                         <span class="white" data-text="H" style="--flicker-duration: 5.9s;">H</span>
                     </div>
-                    <p class="subtext mt-8">Hover to play & feel it pop • Click to claim on Patreon</p>
+                    <p class="subtext mt-8">Hover to feel it pop • Click to claim on Patreon</p>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8" id="cardSlots"></div>
             </div>
         </div>
 
-        <!-- RECOMMENDED / HYPED SITES – now card style -->
+        <!-- RECOMMENDED -->
         <div id="recommended-page" class="page hidden min-h-screen pt-16">
             <div class="max-w-5xl mx-auto px-10 py-12">
                 <div class="text-center mb-12">
@@ -261,26 +245,26 @@
                 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <a href="https://www.printingproxies.com/" target="_blank" class="proxy-card group">
-                        <img src="https://pbs.twimg.com/media/HCjEFeja0AAPJCZ?format=jpg&name=large" class="w-full h-[520px] object-cover transition-all duration-300 group-hover:opacity-90" alt="Printing Proxies">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
-                        <div class="absolute bottom-0 left-0 right-0 p-8">
-                            <div class="text-[#ffb07c] text-xs tracking-[3px]">NSFW PRINTING SPECIALIST</div>
+                        <img src="https://pbs.twimg.com/media/HCjEFeja0AAPJCZ?format=jpg&name=large" class="w-full h-[520px] object-cover transition-all duration-300 group-hover:brightness-110 group-hover:scale-105 group-hover:shadow-[0_0_40px_rgba(255,105,180,0.6)] group-hover:rotate-2" alt="Printing Proxies">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent transition-opacity duration-300 group-hover:opacity-0"></div>
+                        <div class="absolute bottom-0 left-0 right-0 p-8 transition-all duration-300 group-hover:translate-y-[-10px]">
+                            <div class="text-[#ffb07c] text-xs tracking-[3px] opacity-80 group-hover:opacity-100">NSFW PRINTING SPECIALIST</div>
                             <div class="text-4xl font-black logo-font mt-2 leading-none">Printing Proxies</div>
                         </div>
                     </a>
                     <a href="https://mpcfill.com/" target="_blank" class="proxy-card group">
-                        <img src="https://pbs.twimg.com/media/HCjEKaaawAY-fIY?format=jpg&name=large" class="w-full h-[520px] object-cover transition-all duration-300 group-hover:opacity-90" alt="MPC Fill">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
-                        <div class="absolute bottom-0 left-0 right-0 p-8">
-                            <div class="text-[#ffb07c] text-xs tracking-[3px]">EASY MPC FILLER</div>
+                        <img src="https://pbs.twimg.com/media/HCjEKaaawAY-fIY?format=jpg&name=large" class="w-full h-[520px] object-cover transition-all duration-300 group-hover:brightness-110 group-hover:scale-105 group-hover:shadow-[0_0_40px_rgba(255,105,180,0.6)] group-hover:rotate-2" alt="MPC Fill">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent transition-opacity duration-300 group-hover:opacity-0"></div>
+                        <div class="absolute bottom-0 left-0 right-0 p-8 transition-all duration-300 group-hover:translate-y-[-10px]">
+                            <div class="text-[#ffb07c] text-xs tracking-[3px] opacity-80 group-hover:opacity-100">EASY MPC FILLER</div>
                             <div class="text-4xl font-black logo-font mt-2 leading-none">MPC Fill</div>
                         </div>
                     </a>
                     <a href="https://notmpc.com/" target="_blank" class="proxy-card group">
-                        <img src="https://pbs.twimg.com/media/HCjEVOTawAYQynP?format=jpg&name=large" class="w-full h-[520px] object-cover transition-all duration-300 group-hover:opacity-90" alt="Not MPC">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
-                        <div class="absolute bottom-0 left-0 right-0 p-8">
-                            <div class="text-[#ffb07c] text-xs tracking-[3px]">HIGH-QUALITY ALTERNATIVE</div>
+                        <img src="https://pbs.twimg.com/media/HCjEVOTawAYQynP?format=jpg&name=large" class="w-full h-[520px] object-cover transition-all duration-300 group-hover:brightness-110 group-hover:scale-105 group-hover:shadow-[0_0_40px_rgba(255,105,180,0.6)] group-hover:rotate-2" alt="Not MPC">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent transition-opacity duration-300 group-hover:opacity-0"></div>
+                        <div class="absolute bottom-0 left-0 right-0 p-8 transition-all duration-300 group-hover:translate-y-[-10px]">
+                            <div class="text-[#ffb07c] text-xs tracking-[3px] opacity-80 group-hover:opacity-100">HIGH-QUALITY ALTERNATIVE</div>
                             <div class="text-4xl font-black logo-font mt-2 leading-none">Not MPC</div>
                         </div>
                     </a>
@@ -332,7 +316,7 @@
             </div>
         </div>
 
-        <!-- GAMES – PEACHY PONG -->
+        <!-- GAMES – PEACHY PONG (Easy Mode, Best of 3) -->
         <div id="games-page" class="page hidden min-h-screen pt-16 flex flex-col items-center justify-center bg-zinc-950">
             <div class="text-center mb-8">
                 <div class="neon-title">
@@ -348,7 +332,7 @@
                     <span class="white" data-text="N" style="--flicker-duration: 3.7s;">N</span>
                     <span class="white" data-text="G" style="--flicker-duration: 4.4s;">G</span>
                 </div>
-                <p class="text-zinc-300 text-xl mt-4">Hard Mode • First to 7 wins • Mouse controls left paddle</p>
+                <p class="text-zinc-300 text-xl mt-4">Easy Mode • Best of 3 (first to 2) • Mouse controls left paddle</p>
             </div>
 
             <canvas id="pongCanvas" width="800" height="500" class="rounded-3xl border-4 border-[#ff69b4]/40"></canvas>
@@ -362,12 +346,73 @@
             </button>
         </div>
 
-        <!-- Decks placeholder -->
-        <div id="decks-page" class="page hidden min-h-screen pt-16 bg-zinc-950">Deck teasers coming soon...</div>
+     <!-- Deck Teasers – pure card showcase -->
+<div id="decks-page" class="page hidden min-h-screen pt-16">
+    <div class="max-w-7xl mx-auto px-10 py-12">
+        <div class="text-center mb-12">
+            <div class="neon-title">
+                <span class="peach" data-text="D" style="--flicker-duration: 4.2s;">D</span>
+                <span class="peach" data-text="E" style="--flicker-duration: 5.1s;">E</span>
+                <span class="peach" data-text="C" style="--flicker-duration: 3.8s;">C</span>
+                <span class="peach" data-text="K" style="--flicker-duration: 4.9s;">K</span>
+                <span class="peach" data-text=" " style="--flicker-duration: 6s;"> </span>
+                <span class="peach" data-text="T" style="--flicker-duration: 4.5s;">T</span>
+                <span class="peach" data-text="E" style="--flicker-duration: 5.3s;">E</span>
+                <span class="peach" data-text="A" style="--flicker-duration: 3.9s;">A</span>
+                <span class="peach" data-text="S" style="--flicker-duration: 5.2s;">S</span>
+                <span class="peach" data-text="E" style="--flicker-duration: 4.7s;">E</span>
+                <span class="peach" data-text="R" style="--flicker-duration: 6.0s;">R</span>
+                <span class="peach" data-text="S" style="--flicker-duration: 4.4s;">S</span>
+            </div>
+            <p class="text-zinc-400 text-xl mt-4">Pure card previews & upcoming heat 🍑</p>
+        </div>
+
+        <div class="columns-1 md:columns-2 lg:columns-3 xl:columns-4 gap-6 space-y-6">
+            <!-- All cards – no text, just image + hover -->
+            <div class="proxy-card break-inside-avoid group mb-6">
+                <img src="https://pbs.twimg.com/media/HCjbBWEawA4xtbE?format=jpg&name=large" class="w-full rounded-3xl transition-all duration-300 group-hover:brightness-125 group-hover:scale-110 group-hover:shadow-[0_0_60px_rgba(255,105,180,0.8)] group-hover:rotate-6" alt="Deck Teaser">
+            </div>
+            <div class="proxy-card break-inside-avoid group mb-6">
+                <img src="https://pbs.twimg.com/media/HCja-vdawAMea_l?format=jpg&name=large" class="w-full rounded-3xl transition-all duration-300 group-hover:brightness-125 group-hover:scale-110 group-hover:shadow-[0_0_60px_rgba(255,105,180,0.8)] group-hover:rotate-6" alt="Deck Teaser">
+            </div>
+            <div class="proxy-card break-inside-avoid group mb-6">
+                <img src="https://pbs.twimg.com/media/HCja8UlaYAAvQE8?format=jpg&name=large" class="w-full rounded-3xl transition-all duration-300 group-hover:brightness-125 group-hover:scale-110 group-hover:shadow-[0_0_60px_rgba(255,105,180,0.8)] group-hover:rotate-6" alt="Deck Teaser">
+            </div>
+            <div class="proxy-card break-inside-avoid group mb-6">
+                <img src="https://pbs.twimg.com/media/HCja2rfawAIDrS8?format=jpg&name=large" class="w-full rounded-3xl transition-all duration-300 group-hover:brightness-125 group-hover:scale-110 group-hover:shadow-[0_0_60px_rgba(255,105,180,0.8)] group-hover:rotate-6" alt="Deck Teaser">
+            </div>
+            <div class="proxy-card break-inside-avoid group mb-6">
+                <img src="https://pbs.twimg.com/media/HCja0sTawAM8sUF?format=jpg&name=large" class="w-full rounded-3xl transition-all duration-300 group-hover:brightness-125 group-hover:scale-110 group-hover:shadow-[0_0_60px_rgba(255,105,180,0.8)] group-hover:rotate-6" alt="Deck Teaser">
+            </div>
+            <div class="proxy-card break-inside-avoid group mb-6">
+                <img src="https://pbs.twimg.com/media/HCjayHYawAA-VU8?format=jpg&name=large" class="w-full rounded-3xl transition-all duration-300 group-hover:brightness-125 group-hover:scale-110 group-hover:shadow-[0_0_60px_rgba(255,105,180,0.8)] group-hover:rotate-6" alt="Deck Teaser">
+            </div>
+
+            <!-- New 6 cards -->
+            <div class="proxy-card break-inside-avoid group mb-6">
+                <img src="https://pbs.twimg.com/media/HCjcup9awAIhZXj?format=jpg&name=large" class="w-full rounded-3xl transition-all duration-300 group-hover:brightness-125 group-hover:scale-110 group-hover:shadow-[0_0_60px_rgba(255,105,180,0.8)] group-hover:rotate-6" alt="Deck Teaser">
+            </div>
+            <div class="proxy-card break-inside-avoid group mb-6">
+                <img src="https://pbs.twimg.com/media/HCjcrBUaYAAMszI?format=jpg&name=large" class="w-full rounded-3xl transition-all duration-300 group-hover:brightness-125 group-hover:scale-110 group-hover:shadow-[0_0_60px_rgba(255,105,180,0.8)] group-hover:rotate-6" alt="Deck Teaser">
+            </div>
+            <div class="proxy-card break-inside-avoid group mb-6">
+                <img src="https://pbs.twimg.com/media/HCjcoHIawAA9zoB?format=jpg&name=large" class="w-full rounded-3xl transition-all duration-300 group-hover:brightness-125 group-hover:scale-110 group-hover:shadow-[0_0_60px_rgba(255,105,180,0.8)] group-hover:rotate-6" alt="Deck Teaser">
+            </div>
+            <div class="proxy-card break-inside-avoid group mb-6">
+                <img src="https://pbs.twimg.com/media/HCjcldWbYAAXIBF?format=jpg&name=large" class="w-full rounded-3xl transition-all duration-300 group-hover:brightness-125 group-hover:scale-110 group-hover:shadow-[0_0_60px_rgba(255,105,180,0.8)] group-hover:rotate-6" alt="Deck Teaser">
+            </div>
+            <div class="proxy-card break-inside-avoid group mb-6">
+                <img src="https://pbs.twimg.com/media/HCjcehEasAADHy9?format=jpg&name=large" class="w-full rounded-3xl transition-all duration-300 group-hover:brightness-125 group-hover:scale-110 group-hover:shadow-[0_0_60px_rgba(255,105,180,0.8)] group-hover:rotate-6" alt="Deck Teaser">
+            </div>
+            <div class="proxy-card break-inside-avoid group mb-6">
+                <img src="https://pbs.twimg.com/media/HCjccCpakAAoosh?format=jpg&name=large" class="w-full rounded-3xl transition-all duration-300 group-hover:brightness-125 group-hover:scale-110 group-hover:shadow-[0_0_60px_rgba(255,105,180,0.8)] group-hover:rotate-6" alt="Deck Teaser">
+            </div>
+        </div>
     </div>
+</div>
 
     <script>
-        // Peach explosion
+        // Peach explosion – lighter version for better performance
         let peachCanvas = null;
         let peachCtx = null;
 
@@ -387,14 +432,14 @@
             peachCtx.clearRect(0, 0, peachCanvas.width, peachCanvas.height);
 
             const pieces = [];
-            for (let i = 0; i < 70; i++) {
+            for (let i = 0; i < 40; i++) { // reduced from 70
                 pieces.push({
                     x: Math.random() * peachCanvas.width,
                     y: Math.random() * peachCanvas.height - 300,
-                    size: Math.random() * 32 + 18,
-                    speed: Math.random() * 10 + 9,
+                    size: Math.random() * 28 + 16,
+                    speed: Math.random() * 8 + 6,
                     angle: Math.random() * Math.PI * 2,
-                    rot: Math.random() * 0.12 - 0.06
+                    rot: Math.random() * 0.08 - 0.04
                 });
             }
 
@@ -404,7 +449,7 @@
                 let alive = false;
                 pieces.forEach(p => {
                     p.y += p.speed;
-                    p.x += Math.sin(p.angle) * 2.5;
+                    p.x += Math.sin(p.angle) * 2;
                     p.angle += p.rot;
                     peachCtx.save();
                     peachCtx.translate(p.x, p.y);
@@ -421,72 +466,36 @@
             setTimeout(draw, 16);
         }
 
-        // Card pool
+        // Card pool (static images only)
         const cardPool = [
-            { title: "Krenko, Mob Boss", 
-              image: "https://pbs.twimg.com/media/HCi22w9awAE4tMM?format=jpg&name=large",
-              video: "https://video.twimg.com/amplify_video/2028727590568243200/vid/avc1/320x426/wrStrxm_nNnXEPbJ.mp4?tag=24" },
-            { title: "Tifa Lockhart", 
-              image: "https://pbs.twimg.com/media/HCi29ELawAA6zwi?format=jpg&name=large",
-              video: "https://video.twimg.com/amplify_video/2028747352438378496/vid/avc1/320x424/P950ScTqeVTpDUmg.mp4?tag=24" },
-            { title: "The Ur-Dragon", 
-              image: "https://pbs.twimg.com/media/HCi2vUDawAEXtao?format=jpg&name=large",
-              video: "https://video.twimg.com/amplify_video/2028747228735774720/vid/avc1/320x424/8aihYcQMzigNG810.mp4?tag=24" },
-            { title: "Y'shtola, Night's Blessed", 
-              image: "https://pbs.twimg.com/media/HCi2rZ7bkAAXIXR?format=jpg&name=large",
-              video: "https://video.twimg.com/amplify_video/2028747763354329088/vid/avc1/320x424/DgeobI2A48ywBpwi.mp4?tag=24" },
-            { title: "Chatterfang, Squirrel General", 
-              image: "https://pbs.twimg.com/media/HCi2m2xawAAb6-F?format=jpg&name=large",
-              video: "https://video.twimg.com/amplify_video/2028755068837924864/vid/avc1/320x424/nFBCV9Pjekh4NPW8.mp4?tag=24" },
-            { title: "Koma, Cosmos Serpent", 
-              image: "https://pbs.twimg.com/media/HCi2644aQAAifUx?format=jpg&name=large",
-              video: "https://video.twimg.com/amplify_video/2028755542504845312/vid/avc1/320x424/3eA4tX6cRTH7CeOi.mp4?tag=24" }
+            { title: "Krenko, Mob Boss", image: "https://pbs.twimg.com/media/HCi22w9awAE4tMM?format=jpg&name=large" },
+            { title: "Tifa Lockhart", image: "https://pbs.twimg.com/media/HCi29ELawAA6zwi?format=jpg&name=large" },
+            { title: "The Ur-Dragon", image: "https://pbs.twimg.com/media/HCi2vUDawAEXtao?format=jpg&name=large" },
+            { title: "Y'shtola, Night's Blessed", image: "https://pbs.twimg.com/media/HCi2rZ7bkAAXIXR?format=jpg&name=large" },
+            { title: "Chatterfang, Squirrel General", image: "https://pbs.twimg.com/media/HCi2m2xawAAb6-F?format=jpg&name=large" },
+            { title: "Koma, Cosmos Serpent", image: "https://pbs.twimg.com/media/HCi2644aQAAifUx?format=jpg&name=large" }
         ];
 
         function createCards() {
-    const container = document.getElementById('cardSlots');
-    container.innerHTML = '';
-    cardPool.forEach(card => {
-        const div = document.createElement('div');
-        div.className = `proxy-card relative group h-[520px] overflow-hidden rounded-3xl`;
-        div.innerHTML = `
-            <img src="${card.image}" class="w-full h-full object-cover transition-all duration-300 group-hover:opacity-0" alt="${card.title}">
-            <video loop muted playsinline preload="auto" class="absolute inset-0 w-full h-full object-cover transition-all duration-300 opacity-0 group-hover:opacity-100">
-                <source src="${card.video}" type="video/mp4">
-            </video>
-            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
-            <div class="absolute bottom-0 left-0 right-0 p-8">
-                <div class="text-[#ffb07c] text-xs tracking-[3px]">PATREON EXCLUSIVE</div>
-                <div class="text-4xl font-black logo-font mt-2 leading-none">${card.title}</div>
-            </div>
-            <div class="absolute inset-0" onclick="window.open('https://www.patreon.com/peachyproxy', '_blank')"></div>
-        `;
-        container.appendChild(div);
-
-        // Force play on hover + catch blocks
-        div.addEventListener('mouseenter', () => {
-            const video = div.querySelector('video');
-            if (video) {
-                video.currentTime = 0;
-                const playPromise = video.play();
-                if (playPromise !== undefined) {
-                    playPromise.catch(error => {
-                        console.log(`Hover video play blocked for ${card.title}:`, error);
-                        // Optional future: add "tap to play" overlay here if blocked often
-                    });
-                }
-            }
-        });
-
-        div.addEventListener('mouseleave', () => {
-            const video = div.querySelector('video');
-            if (video) video.pause();
-        });
-    });
-}
+            const container = document.getElementById('cardSlots');
+            container.innerHTML = '';
+            cardPool.forEach(card => {
+                const div = document.createElement('div');
+                div.className = `proxy-card relative group h-[520px] overflow-hidden rounded-3xl`;
+                div.innerHTML = `
+                    <img src="${card.image}" class="w-full h-full object-cover transition-all duration-300 group-hover:brightness-125 group-hover:scale-110 group-hover:shadow-[0_0_60px_rgba(255,105,180,0.8)] group-hover:rotate-6" alt="${card.title}">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent transition-opacity duration-300 group-hover:opacity-0"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-8 transition-all duration-300 group-hover:translate-y-[-10px]">
+                        <div class="text-[#ffb07c] text-xs tracking-[3px] opacity-80 group-hover:opacity-100">PATREON EXCLUSIVE</div>
+                        <div class="text-4xl font-black logo-font mt-2 leading-none">${card.title}</div>
+                    </div>
+                    <div class="absolute inset-0" onclick="window.open('https://www.patreon.com/peachyproxy', '_blank')"></div>
+                `;
+                container.appendChild(div);
+            });
+        }
 
         function enterSite() {
-            console.log("YES button clicked – entering site");
             const modal = document.getElementById('ageModal');
             modal.style.transition = 'opacity 1s ease, transform 1s ease';
             modal.style.opacity = '0';
@@ -501,7 +510,6 @@
         }
 
         function leaveSite() {
-            console.log("NO button clicked – redirecting");
             window.location.href = "https://www.google.com";
         }
 
@@ -516,12 +524,12 @@
             peachConfetti();
         }
 
-        // Peachy Pong – Hard Mode
+        // Peachy Pong – Easy Mode, Best of 3 (first to 2)
         let pongCanvas, pongCtx, pongRunning = false;
         let playerY = 200, aiY = 200;
-        let ballX = 400, ballY = 250, ballDX = 7, ballDY = 5; // faster start
+        let ballX = 400, ballY = 250, ballDX = 6, ballDY = 4; // base speed up 20%
         let playerScore = 0, aiScore = 0;
-        const WIN_SCORE = 7;
+        const WIN_SCORE = 2;
 
         function initPong() {
             pongCanvas = document.getElementById('pongCanvas');
@@ -540,7 +548,7 @@
                 playerScore = 0;
                 aiScore = 0;
                 ballX = 400; ballY = 250;
-                ballDX = 7; ballDY = 5;
+                ballDX = 6; ballDY = 4;
                 document.getElementById('playerScore').textContent = 0;
                 document.getElementById('aiScore').textContent = 0;
                 document.getElementById('restartPong').classList.add('hidden');
@@ -571,12 +579,12 @@
             if (ballY <= 0 || ballY >= pongCanvas.height - 60) ballDY = -ballDY;
 
             if (ballX <= 50 && ballY > playerY && ballY < playerY + 100) {
-                ballDX = -ballDX * 1.05; // slight speed increase
-                ballDY += (ballY - (playerY + 50)) * 0.15; // harder angle
+                ballDX = -ballDX;
+                ballDY += (ballY - (playerY + 50)) * 0.08; // easy angle
             }
             if (ballX >= pongCanvas.width - 50 && ballY > aiY && ballY < aiY + 100) {
-                ballDX = -ballDX * 1.05;
-                ballDY += (ballY - (aiY + 50)) * 0.15;
+                ballDX = -ballDX;
+                ballDY += (ballY - (aiY + 50)) * 0.08;
             }
 
             if (ballX < 0) {
@@ -591,9 +599,9 @@
             document.getElementById('playerScore').textContent = playerScore;
             document.getElementById('aiScore').textContent = aiScore;
 
-            // Harder AI: faster tracking
-            if (aiY + 50 < ballY) aiY += 6;
-            if (aiY + 50 > ballY) aiY -= 6;
+            // Easy AI: slower tracking
+            if (aiY + 50 < ballY) aiY += 3.5;
+            if (aiY + 50 > ballY) aiY -= 3.5;
 
             if (playerScore >= WIN_SCORE || aiScore >= WIN_SCORE) {
                 pongRunning = false;
@@ -607,8 +615,8 @@
         function resetBall() {
             ballX = pongCanvas.width / 2;
             ballY = pongCanvas.height / 2;
-            ballDX = -ballDX;
-            ballDY = Math.random() * 8 - 4;
+            ballDX = (Math.random() > 0.5 ? 6 : -6);
+            ballDY = Math.random() * 6 - 3;
         }
 
         window.onload = function() {
@@ -620,7 +628,7 @@
             if (leaveBtn) leaveBtn.addEventListener('click', leaveSite);
             switchPage('home');
             initPong();
-            console.log('%c🍑 Peachy Pong Hard Mode + all final touches locked in!', 'color:#ff69b4; font-weight:bold');
+            console.log('%c🍑 Static cards with enhanced hover + Peachy Pong easy mode ready!', 'color:#ff69b4; font-weight:bold');
         };
     </script>
 </body>
