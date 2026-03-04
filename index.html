@@ -166,7 +166,7 @@
                     <i class="fas fa-home w-5"></i><span class="font-medium">Proxy Decks</span>
                 </li>
                 <li onclick="switchPage('games')" class="nav-item flex items-center gap-3 px-5 py-4 rounded-3xl hover:bg-white/10 cursor-pointer">
-                    <i class="fas fa-gamepad w-5"></i><span class="font-medium">Draft It</span>
+                    <i class="fas fa-gamepad w-5"></i><span class="font-medium">Peachy Pong</span>
                 </li>
                 <li onclick="switchPage('decks')" class="nav-item flex items-center gap-3 px-5 py-4 rounded-3xl hover:bg-white/10 cursor-pointer">
                     <i class="fas fa-layer-group w-5"></i><span class="font-medium">Deck Teasers</span>
@@ -222,7 +222,7 @@
             </div>
         </div>
 
-        <!-- RECOMMENDED -->
+        <!-- RECOMMENDED / HYPED SITES – now card style -->
         <div id="recommended-page" class="page hidden min-h-screen pt-16">
             <div class="max-w-5xl mx-auto px-10 py-12">
                 <div class="text-center mb-12">
@@ -260,21 +260,29 @@
                 </div>
                 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <a href="https://www.printingproxies.com/" target="_blank" class="bg-gradient-to-br from-[#ff69b4]/10 to-[#ff1493]/10 border-2 border-[#ff69b4]/40 hover:border-[#ff69b4] hover:shadow-[0_0_25px_rgba(255,105,180,0.4)] rounded-3xl p-8 transition-all group backdrop-blur-sm">
-                        <div class="text-6xl mb-6 drop-shadow-lg text-[#ff69b4]">🖨️</div>
-                        <div class="text-3xl font-bold mb-2 text-white drop-shadow-md">Printing Proxies</div>
-                        <div class="text-rose-400 text-sm mb-4 font-medium">NSFW PRINTING SPECIALIST</div>
-                        <p class="text-zinc-300 group-hover:text-[#ffb07c] transition-colors">High-quality MTG proxies with full NSFW support. Fast & discreet.</p>
+                    <a href="https://www.printingproxies.com/" target="_blank" class="proxy-card group">
+                        <img src="https://pbs.twimg.com/media/HCjEFeja0AAPJCZ?format=jpg&name=large" class="w-full h-[520px] object-cover transition-all duration-300 group-hover:opacity-90" alt="Printing Proxies">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+                        <div class="absolute bottom-0 left-0 right-0 p-8">
+                            <div class="text-[#ffb07c] text-xs tracking-[3px]">NSFW PRINTING SPECIALIST</div>
+                            <div class="text-4xl font-black logo-font mt-2 leading-none">Printing Proxies</div>
+                        </div>
                     </a>
-                    <a href="https://mpcfill.com/" target="_blank" class="bg-gradient-to-br from-[#ff69b4]/10 to-[#ff1493]/10 border-2 border-[#ff69b4]/40 hover:border-[#ff69b4] hover:shadow-[0_0_25px_rgba(255,105,180,0.4)] rounded-3xl p-8 transition-all group backdrop-blur-sm">
-                        <div class="text-6xl mb-6 drop-shadow-lg text-[#ff69b4]">📦</div>
-                        <div class="text-3xl font-bold mb-2 text-white drop-shadow-md">MPC Fill</div>
-                        <p class="text-zinc-300 group-hover:text-[#ffb07c] transition-colors">The easiest way to fill your MPC order. Drag, drop, done.</p>
+                    <a href="https://mpcfill.com/" target="_blank" class="proxy-card group">
+                        <img src="https://pbs.twimg.com/media/HCjEKaaawAY-fIY?format=jpg&name=large" class="w-full h-[520px] object-cover transition-all duration-300 group-hover:opacity-90" alt="MPC Fill">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+                        <div class="absolute bottom-0 left-0 right-0 p-8">
+                            <div class="text-[#ffb07c] text-xs tracking-[3px]">EASY MPC FILLER</div>
+                            <div class="text-4xl font-black logo-font mt-2 leading-none">MPC Fill</div>
+                        </div>
                     </a>
-                    <a href="https://notmpc.com/" target="_blank" class="bg-gradient-to-br from-[#ff69b4]/10 to-[#ff1493]/10 border-2 border-[#ff69b4]/40 hover:border-[#ff69b4] hover:shadow-[0_0_25px_rgba(255,105,180,0.4)] rounded-3xl p-8 transition-all group backdrop-blur-sm">
-                        <div class="text-6xl mb-6 drop-shadow-lg text-[#ff69b4]">🔥</div>
-                        <div class="text-3xl font-bold mb-2 text-white drop-shadow-md">Not MPC</div>
-                        <p class="text-zinc-300 group-hover:text-[#ffb07c] transition-colors">Alternative proxy printing service with great quality and speed.</p>
+                    <a href="https://notmpc.com/" target="_blank" class="proxy-card group">
+                        <img src="https://pbs.twimg.com/media/HCjEVOTawAYQynP?format=jpg&name=large" class="w-full h-[520px] object-cover transition-all duration-300 group-hover:opacity-90" alt="Not MPC">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+                        <div class="absolute bottom-0 left-0 right-0 p-8">
+                            <div class="text-[#ffb07c] text-xs tracking-[3px]">HIGH-QUALITY ALTERNATIVE</div>
+                            <div class="text-4xl font-black logo-font mt-2 leading-none">Not MPC</div>
+                        </div>
                     </a>
                 </div>
             </div>
@@ -340,7 +348,7 @@
                     <span class="white" data-text="N" style="--flicker-duration: 3.7s;">N</span>
                     <span class="white" data-text="G" style="--flicker-duration: 4.4s;">G</span>
                 </div>
-                <p class="text-zinc-300 text-xl mt-4">First to 5 wins • Mouse controls left paddle</p>
+                <p class="text-zinc-300 text-xl mt-4">Hard Mode • First to 7 wins • Mouse controls left paddle</p>
             </div>
 
             <canvas id="pongCanvas" width="800" height="500" class="rounded-3xl border-4 border-[#ff69b4]/40"></canvas>
@@ -359,7 +367,7 @@
     </div>
 
     <script>
-        // Peach explosion – defined first so it's always available
+        // Peach explosion
         let peachCanvas = null;
         let peachCtx = null;
 
@@ -436,26 +444,23 @@
         ];
 
         function createCards() {
-            const container = document.getElementById('cardSlots');
-            container.innerHTML = '';
-            cardPool.forEach(card => {
-                const div = document.createElement('div');
-                div.className = `proxy-card relative group h-[520px] overflow-hidden rounded-3xl`;
-                div.innerHTML = `
-                    <img src="${card.image}" class="w-full h-full object-cover transition-all duration-300 group-hover:opacity-0" alt="${card.title}">
-                    <video loop muted playsinline class="absolute inset-0 w-full h-full object-cover transition-all duration-300 opacity-0 group-hover:opacity-100">
-                        <source src="${card.video}" type="video/mp4">
-                    </video>
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
-                    <div class="absolute bottom-0 left-0 right-0 p-8">
-                        <div class="text-[#ffb07c] text-xs tracking-[3px]">PATREON EXCLUSIVE</div>
-                        <div class="text-4xl font-black logo-font mt-2 leading-none">${card.title}</div>
-                    </div>
-                    <div class="absolute inset-0" onclick="window.open('https://www.patreon.com/peachyproxy', '_blank')"></div>
-                `;
-                container.appendChild(div);
-            });
-        }
+    const container = document.getElementById('cardSlots');
+    container.innerHTML = '';
+    cardPool.forEach(card => {
+        const div = document.createElement('div');
+        div.className = `proxy-card relative group h-[520px] overflow-hidden rounded-3xl`;
+        div.innerHTML = `
+            <img src="${card.image}" class="w-full h-full object-cover transition-all duration-300 group-hover:brightness-110 group-hover:scale-105 group-hover:shadow-[0_0_40px_rgba(255,105,180,0.6)] group-hover:rotate-2" alt="${card.title}">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent transition-opacity duration-300 group-hover:opacity-0"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-8 transition-all duration-300 group-hover:translate-y-[-10px]">
+                <div class="text-[#ffb07c] text-xs tracking-[3px] opacity-80 group-hover:opacity-100">PATREON EXCLUSIVE</div>
+                <div class="text-4xl font-black logo-font mt-2 leading-none">${card.title}</div>
+            </div>
+            <div class="absolute inset-0" onclick="window.open('https://www.patreon.com/peachyproxy', '_blank')"></div>
+        `;
+        container.appendChild(div);
+    });
+}
 
         function enterSite() {
             console.log("YES button clicked – entering site");
@@ -488,11 +493,12 @@
             peachConfetti();
         }
 
-        // Peachy Pong (simplified, but keeps confetti on win)
+        // Peachy Pong – Hard Mode
         let pongCanvas, pongCtx, pongRunning = false;
         let playerY = 200, aiY = 200;
-        let ballX = 400, ballY = 250, ballDX = 5, ballDY = 3;
+        let ballX = 400, ballY = 250, ballDX = 7, ballDY = 5; // faster start
         let playerScore = 0, aiScore = 0;
+        const WIN_SCORE = 7;
 
         function initPong() {
             pongCanvas = document.getElementById('pongCanvas');
@@ -511,7 +517,7 @@
                 playerScore = 0;
                 aiScore = 0;
                 ballX = 400; ballY = 250;
-                ballDX = 5; ballDY = 3;
+                ballDX = 7; ballDY = 5;
                 document.getElementById('playerScore').textContent = 0;
                 document.getElementById('aiScore').textContent = 0;
                 document.getElementById('restartPong').classList.add('hidden');
@@ -542,12 +548,12 @@
             if (ballY <= 0 || ballY >= pongCanvas.height - 60) ballDY = -ballDY;
 
             if (ballX <= 50 && ballY > playerY && ballY < playerY + 100) {
-                ballDX = -ballDX;
-                ballDY += (ballY - (playerY + 50)) * 0.1;
+                ballDX = -ballDX * 1.05; // slight speed increase
+                ballDY += (ballY - (playerY + 50)) * 0.15; // harder angle
             }
             if (ballX >= pongCanvas.width - 50 && ballY > aiY && ballY < aiY + 100) {
-                ballDX = -ballDX;
-                ballDY += (ballY - (aiY + 50)) * 0.1;
+                ballDX = -ballDX * 1.05;
+                ballDY += (ballY - (aiY + 50)) * 0.15;
             }
 
             if (ballX < 0) {
@@ -562,10 +568,11 @@
             document.getElementById('playerScore').textContent = playerScore;
             document.getElementById('aiScore').textContent = aiScore;
 
-            if (aiY + 50 < ballY) aiY += 4;
-            if (aiY + 50 > ballY) aiY -= 4;
+            // Harder AI: faster tracking
+            if (aiY + 50 < ballY) aiY += 6;
+            if (aiY + 50 > ballY) aiY -= 6;
 
-            if (playerScore >= 5 || aiScore >= 5) {
+            if (playerScore >= WIN_SCORE || aiScore >= WIN_SCORE) {
                 pongRunning = false;
                 document.getElementById('restartPong').classList.remove('hidden');
                 peachConfetti();
@@ -578,7 +585,7 @@
             ballX = pongCanvas.width / 2;
             ballY = pongCanvas.height / 2;
             ballDX = -ballDX;
-            ballDY = Math.random() * 6 - 3;
+            ballDY = Math.random() * 8 - 4;
         }
 
         window.onload = function() {
@@ -590,7 +597,7 @@
             if (leaveBtn) leaveBtn.addEventListener('click', leaveSite);
             switchPage('home');
             initPong();
-            console.log('%c🍑 Peach explosion + cards + age gate all fixed!', 'color:#ff69b4; font-weight:bold');
+            console.log('%c🍑 Peachy Pong Hard Mode + all final touches locked in!', 'color:#ff69b4; font-weight:bold');
         };
     </script>
 </body>
