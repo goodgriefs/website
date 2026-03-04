@@ -31,7 +31,7 @@
             100% { transform: translateY(0) skewY(-8deg) scale(0.98); }
         }
         
-        .proxy-card, .draft-card {
+        .proxy-card {
             transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
             transform-style: preserve-3d;
             background: transparent;
@@ -40,7 +40,7 @@
             overflow: hidden;
             cursor: pointer;
         }
-        .proxy-card:hover, .draft-card:hover {
+        .proxy-card:hover {
             transform: scale(1.12) rotate(3deg) translateY(-20px);
             box-shadow: 0 0 80px -15px #ff69b4, 0 40px 70px -20px rgba(0,0,0,0.6);
             border-color: rgba(255, 105, 180, 0.6);
@@ -117,6 +117,13 @@
         @media (max-width: 768px) {
             .neon-title { font-size: 3.8rem; letter-spacing: -0.01em; }
         }
+
+        /* Peachy Pong styles */
+        #pongCanvas {
+            background: #111827;
+            border-radius: 1.5rem;
+            box-shadow: 0 0 40px rgba(255, 105, 180, 0.3);
+        }
     </style>
 </head>
 <body class="bg-zinc-950 text-white overflow-x-hidden">
@@ -163,10 +170,10 @@
         <nav class="flex-1 px-4 py-8">
             <ul class="space-y-1 text-base">
                 <li onclick="switchPage('home')" class="nav-item flex items-center gap-3 px-5 py-4 rounded-3xl hover:bg-white/10 cursor-pointer active">
-                    <i class="fas fa-home w-5"></i><span class="font-medium">Home • Cards</span>
+                    <i class="fas fa-home w-5"></i><span class="font-medium">Proxy Decks</span>
                 </li>
                 <li onclick="switchPage('games')" class="nav-item flex items-center gap-3 px-5 py-4 rounded-3xl hover:bg-white/10 cursor-pointer">
-                    <i class="fas fa-gamepad w-5"></i><span class="font-medium">Play Games</span>
+                    <i class="fas fa-gamepad w-5"></i><span class="font-medium">Draft It</span>
                 </li>
                 <li onclick="switchPage('decks')" class="nav-item flex items-center gap-3 px-5 py-4 rounded-3xl hover:bg-white/10 cursor-pointer">
                     <i class="fas fa-layer-group w-5"></i><span class="font-medium">Deck Teasers</span>
@@ -328,36 +335,34 @@
             </div>
         </div>
 
-        <!-- GAMES – PROXY DRAFT SIMULATOR -->
-        <div id="games-page" class="page hidden min-h-screen pt-16">
-            <div class="max-w-5xl mx-auto px-10 py-12 text-center">
-                <div class="neon-title mb-12">
+        <!-- GAMES – PEACHY PONG -->
+        <div id="games-page" class="page hidden min-h-screen pt-16 flex flex-col items-center justify-center bg-zinc-950">
+            <div class="text-center mb-8">
+                <div class="neon-title">
                     <span class="peach" data-text="P" style="--flicker-duration: 4.2s;">P</span>
-                    <span class="peach" data-text="R" style="--flicker-duration: 5.1s;">R</span>
-                    <span class="peach" data-text="O" style="--flicker-duration: 3.8s;">O</span>
-                    <span class="peach" data-text="X" style="--flicker-duration: 4.9s;">X</span>
-                    <span class="peach" data-text="Y" style="--flicker-duration: 5.6s;">Y</span>
+                    <span class="peach" data-text="E" style="--flicker-duration: 5.1s;">E</span>
+                    <span class="peach" data-text="A" style="--flicker-duration: 3.8s;">A</span>
+                    <span class="peach" data-text="C" style="--flicker-duration: 4.9s;">C</span>
+                    <span class="peach" data-text="H" style="--flicker-duration: 5.6s;">H</span>
+                    <span class="peach" data-text="Y" style="--flicker-duration: 4.5s;">Y</span>
                     <span class="peach" data-text=" " style="--flicker-duration: 6s;"> </span>
-                    <span class="white" data-text="D" style="--flicker-duration: 4.5s;">D</span>
-                    <span class="white" data-text="R" style="--flicker-duration: 5.3s;">R</span>
-                    <span class="white" data-text="A" style="--flicker-duration: 3.9s;">A</span>
-                    <span class="white" data-text="F" style="--flicker-duration: 4.7s;">F</span>
-                    <span class="white" data-text="T" style="--flicker-duration: 5.2s;">T</span>
+                    <span class="white" data-text="P" style="--flicker-duration: 4.8s;">P</span>
+                    <span class="white" data-text="O" style="--flicker-duration: 5.2s;">O</span>
+                    <span class="white" data-text="N" style="--flicker-duration: 3.7s;">N</span>
+                    <span class="white" data-text="G" style="--flicker-duration: 4.4s;">G</span>
                 </div>
-                <p class="text-zinc-300 text-xl mb-10">Crack packs, build your dream proxy deck 🍑</p>
-
-                <button id="draftBtn" class="px-12 py-6 bg-gradient-to-r from-[#ff69b4] to-[#ff1493] text-black font-black text-3xl rounded-3xl hover:scale-105 transition-all shadow-2xl mb-12">
-                    OPEN PACK 🍑
-                </button>
-
-                <div id="packArea" class="grid grid-cols-3 gap-8 mb-16 min-h-[520px]"></div>
-
-                <div class="text-left">
-                    <h3 class="text-3xl font-bold mb-6 text-[#ffb07c]">YOUR DRAFTED DECK</h3>
-                    <div id="deckArea" class="grid grid-cols-3 md:grid-cols-6 gap-6"></div>
-                    <p id="draftMessage" class="text-xl mt-8 text-zinc-300"></p>
-                </div>
+                <p class="text-zinc-300 text-xl mt-4">First to 5 wins • Mouse controls left paddle</p>
             </div>
+
+            <canvas id="pongCanvas" width="800" height="500" class="rounded-3xl border-4 border-[#ff69b4]/40"></canvas>
+
+            <div class="mt-6 text-2xl font-bold">
+                Score: <span id="playerScore">0</span> - <span id="aiScore">0</span>
+            </div>
+
+            <button id="restartPong" class="mt-6 px-8 py-4 bg-gradient-to-r from-[#ff69b4] to-[#ff1493] text-black font-black text-2xl rounded-3xl hover:scale-105 transition-all hidden">
+                Play Again 🍑
+            </button>
         </div>
 
         <!-- Decks placeholder -->
@@ -365,74 +370,7 @@
     </div>
 
     <script>
-        const peachCards = [
-            { title: "Krenko, Mob Boss", video: "https://video.twimg.com/amplify_video/2028727590568243200/vid/avc1/320x426/wrStrxm_nNnXEPbJ.mp4?tag=24" },
-            { title: "Tifa Lockhart", video: "https://video.twimg.com/amplify_video/2028747352438378496/vid/avc1/320x424/P950ScTqeVTpDUmg.mp4?tag=24" },
-            { title: "The Ur-Dragon", video: "https://video.twimg.com/amplify_video/2028747228735774720/vid/avc1/320x424/8aihYcQMzigNG810.mp4?tag=24" },
-            { title: "Y'shtola, Night's Blessed", video: "https://video.twimg.com/amplify_video/2028747763354329088/vid/avc1/320x424/DgeobI2A48ywBpwi.mp4?tag=24" },
-            { title: "Chatterfang, Squirrel General", video: "https://video.twimg.com/amplify_video/2028755068837924864/vid/avc1/320x424/nFBCV9Pjekh4NPW8.mp4?tag=24" },
-            { title: "Koma, Cosmos Serpent", video: "https://video.twimg.com/amplify_video/2028755542504845312/vid/avc1/320x424/3eA4tX6cRTH7CeOi.mp4?tag=24" }
-        ];
-
-        let draftedCards = [];
-
-        function getRandomCards(count = 3) {
-            const shuffled = [...cardPool].sort(() => 0.5 - Math.random());
-            return shuffled.slice(0, count);
-        }
-
-        function renderPack() {
-            console.log("OPEN PACK clicked – generating pack");
-            const packArea = document.getElementById('packArea');
-            packArea.innerHTML = '';
-            const pack = getRandomCards(3);
-            pack.forEach(card => {
-                const div = document.createElement('div');
-                div.className = `draft-card relative group`;
-                div.innerHTML = `
-                    <img src="${card.image}" class="w-full h-[520px] object-cover rounded-3xl" alt="${card.title}">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent rounded-3xl"></div>
-                    <div class="absolute bottom-0 left-0 right-0 p-8">
-                        <div class="text-[#ffb07c] text-xs tracking-[3px]">DRAFT PICK</div>
-                        <div class="text-4xl font-black logo-font mt-2 leading-none">${card.title}</div>
-                    </div>
-                `;
-                div.onclick = () => {
-                    draftedCards.push(card);
-                    renderDeck();
-                    if (packArea.contains(div)) packArea.removeChild(div);
-                    checkDraftComplete();
-                };
-                packArea.appendChild(div);
-            });
-        }
-
-        function renderDeck() {
-            const deckArea = document.getElementById('deckArea');
-            deckArea.innerHTML = '';
-            draftedCards.forEach(card => {
-                const div = document.createElement('div');
-                div.className = `proxy-card relative`;
-                div.innerHTML = `
-                    <img src="${card.image}" class="w-full h-[260px] object-cover rounded-3xl" alt="${card.title}">
-                    <div class="absolute bottom-0 left-0 right-0 p-4 bg-black/60 rounded-b-3xl">
-                        <div class="text-[#ffb07c] text-xs">${card.title}</div>
-                    </div>
-                `;
-                deckArea.appendChild(div);
-            });
-        }
-
-        function checkDraftComplete() {
-            if (draftedCards.length >= 9) {
-                const message = document.getElementById('draftMessage');
-                const rating = Math.floor(Math.random() * 5) + 6;
-                message.innerHTML = `Deck complete! Power level: <span class="text-[#ff69b4] font-bold">${rating}/10</span> peaches 🍑<br>You're ready to dominate!`;
-                peachConfetti(); // explosion on draft victory
-            }
-        }
-
-        // Peach explosion (always available, no strict stack limit for page switches)
+        // Peach explosion
         let peachCanvas = null;
         let peachCtx = null;
 
@@ -488,11 +426,12 @@
         function createCards() {
             const container = document.getElementById('cardSlots');
             container.innerHTML = '';
-            peachCards.forEach(card => {
+            cardPool.forEach(card => {
                 const div = document.createElement('div');
-                div.className = `proxy-card rounded-3xl overflow-hidden cursor-pointer relative group h-[520px]`;
+                div.className = `proxy-card relative group h-[520px] overflow-hidden rounded-3xl`;
                 div.innerHTML = `
-                    <video loop muted playsinline class="absolute inset-0 w-full h-full object-contain transition-all group-hover:brightness-110">
+                    <img src="${card.image}" class="w-full h-full object-cover transition-all duration-300 group-hover:opacity-0" alt="${card.title}">
+                    <video loop muted playsinline class="absolute inset-0 w-full h-full object-cover transition-all duration-300 opacity-0 group-hover:opacity-100">
                         <source src="${card.video}" type="video/mp4">
                     </video>
                     <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
@@ -502,22 +441,11 @@
                     </div>
                     <div class="absolute inset-0" onclick="window.open('https://www.patreon.com/peachyproxy', '_blank')"></div>
                 `;
-                const video = div.querySelector('video');
-                div.addEventListener('mouseenter', () => { 
-                    video.play().catch(() => {}); 
-                    document.querySelectorAll('.peach-twerk').forEach(p => p.style.animationDuration = '0.35s'); 
-                });
-                div.addEventListener('mouseleave', () => { 
-                    video.pause(); 
-                    video.currentTime = 0; 
-                    document.querySelectorAll('.peach-twerk').forEach(p => p.style.animationDuration = ''); 
-                });
                 container.appendChild(div);
             });
         }
 
         function enterSite() {
-            console.log("YES button clicked – entering site");
             const modal = document.getElementById('ageModal');
             modal.style.transition = 'opacity 1s ease, transform 1s ease';
             modal.style.opacity = '0';
@@ -527,12 +455,11 @@
                 document.body.classList.add('age-verified');
                 document.querySelector('.main-content').style.filter = 'none';
                 document.querySelector('.main-content').style.opacity = '1';
-                peachConfetti(); // explosion on entry
+                peachConfetti();
             }, 800);
         }
 
         function leaveSite() {
-            console.log("NO button clicked – redirecting");
             window.location.href = "https://www.google.com";
         }
 
@@ -544,10 +471,109 @@
             const active = Array.from(document.querySelectorAll('.nav-item')).find(li => li.getAttribute('onclick').includes(`'${page}'`));
             if (active) active.classList.add('active', 'bg-white/10');
 
-            // Explosion on EVERY page switch (including home if wanted, but keeping non-home only)
-            if (page !== 'home') {
+            peachConfetti();
+        }
+
+        // Peachy Pong
+        let pongCanvas, pongCtx, pongRunning = false;
+        let playerY = 200, aiY = 200;
+        let ballX = 400, ballY = 250, ballDX = 5, ballDY = 3;
+        let playerScore = 0, aiScore = 0;
+
+        function initPong() {
+            pongCanvas = document.getElementById('pongCanvas');
+            pongCtx = pongCanvas.getContext('2d');
+            pongCanvas.width = 800;
+            pongCanvas.height = 500;
+
+            pongCanvas.addEventListener('mousemove', (e) => {
+                const rect = pongCanvas.getBoundingClientRect();
+                playerY = e.clientY - rect.top - 50;
+                if (playerY < 0) playerY = 0;
+                if (playerY > pongCanvas.height - 100) playerY = pongCanvas.height - 100;
+            });
+
+            document.getElementById('restartPong').onclick = () => {
+                playerScore = 0;
+                aiScore = 0;
+                ballX = 400; ballY = 250;
+                ballDX = 5; ballDY = 3;
+                document.getElementById('playerScore').textContent = 0;
+                document.getElementById('aiScore').textContent = 0;
+                document.getElementById('restartPong').classList.add('hidden');
+                pongRunning = true;
+                pongLoop();
+            };
+
+            pongRunning = true;
+            pongLoop();
+        }
+
+        function pongLoop() {
+            if (!pongRunning) return;
+
+            // Clear
+            pongCtx.fillStyle = '#111827';
+            pongCtx.fillRect(0, 0, pongCanvas.width, pongCanvas.height);
+
+            // Paddles
+            pongCtx.fillStyle = '#ff69b4';
+            pongCtx.fillRect(30, playerY, 20, 100); // player
+            pongCtx.fillRect(pongCanvas.width - 50, aiY, 20, 100); // AI
+
+            // Ball (peach emoji)
+            pongCtx.font = '60px serif';
+            pongCtx.fillText('🍑', ballX - 30, ballY + 20);
+
+            // Move ball
+            ballX += ballDX;
+            ballY += ballDY;
+
+            // Wall bounce
+            if (ballY <= 0 || ballY >= pongCanvas.height - 60) ballDY = -ballDY;
+
+            // Paddle collision
+            if (ballX <= 50 && ballY > playerY && ballY < playerY + 100) {
+                ballDX = -ballDX;
+                ballDY += (ballY - (playerY + 50)) * 0.1;
+            }
+            if (ballX >= pongCanvas.width - 50 && ballY > aiY && ballY < aiY + 100) {
+                ballDX = -ballDX;
+                ballDY += (ballY - (aiY + 50)) * 0.1;
+            }
+
+            // Scoring
+            if (ballX < 0) {
+                aiScore++;
+                resetBall();
+            }
+            if (ballX > pongCanvas.width) {
+                playerScore++;
+                resetBall();
+            }
+
+            document.getElementById('playerScore').textContent = playerScore;
+            document.getElementById('aiScore').textContent = aiScore;
+
+            // AI movement (simple)
+            if (aiY + 50 < ballY) aiY += 4;
+            if (aiY + 50 > ballY) aiY -= 4;
+
+            // Game over
+            if (playerScore >= 5 || aiScore >= 5) {
+                pongRunning = false;
+                document.getElementById('restartPong').classList.remove('hidden');
                 peachConfetti();
             }
+
+            requestAnimationFrame(pongLoop);
+        }
+
+        function resetBall() {
+            ballX = pongCanvas.width / 2;
+            ballY = pongCanvas.height / 2;
+            ballDX = -ballDX;
+            ballDY = Math.random() * 6 - 3;
         }
 
         window.onload = function() {
@@ -555,9 +581,9 @@
             createCards();
             document.getElementById('enterBtn').addEventListener('click', enterSite);
             document.getElementById('leaveBtn').addEventListener('click', leaveSite);
-            document.getElementById('draftBtn').addEventListener('click', renderPack);
             switchPage('home');
-            console.log('%c🍑 Peach explosion restored everywhere + draft button fixed!', 'color:#ff69b4; font-weight:bold');
+            initPong();
+            console.log('%c🍑 Peachy Pong ready + all fixes applied!', 'color:#ff69b4; font-weight:bold');
         };
     </script>
 </body>
