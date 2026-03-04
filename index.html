@@ -450,15 +450,38 @@
         const div = document.createElement('div');
         div.className = `proxy-card relative group h-[520px] overflow-hidden rounded-3xl`;
         div.innerHTML = `
-            <img src="${card.image}" class="w-full h-full object-cover transition-all duration-300 group-hover:brightness-110 group-hover:scale-105 group-hover:shadow-[0_0_40px_rgba(255,105,180,0.6)] group-hover:rotate-2" alt="${card.title}">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent transition-opacity duration-300 group-hover:opacity-0"></div>
-            <div class="absolute bottom-0 left-0 right-0 p-8 transition-all duration-300 group-hover:translate-y-[-10px]">
-                <div class="text-[#ffb07c] text-xs tracking-[3px] opacity-80 group-hover:opacity-100">PATREON EXCLUSIVE</div>
+            <img src="${card.image}" class="w-full h-full object-cover transition-all duration-300 group-hover:opacity-0" alt="${card.title}">
+            <video loop muted playsinline preload="auto" class="absolute inset-0 w-full h-full object-cover transition-all duration-300 opacity-0 group-hover:opacity-100">
+                <source src="${card.video}" type="video/mp4">
+            </video>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-8">
+                <div class="text-[#ffb07c] text-xs tracking-[3px]">PATREON EXCLUSIVE</div>
                 <div class="text-4xl font-black logo-font mt-2 leading-none">${card.title}</div>
             </div>
             <div class="absolute inset-0" onclick="window.open('https://www.patreon.com/peachyproxy', '_blank')"></div>
         `;
         container.appendChild(div);
+
+        // Force play on hover + catch blocks
+        div.addEventListener('mouseenter', () => {
+            const video = div.querySelector('video');
+            if (video) {
+                video.currentTime = 0;
+                const playPromise = video.play();
+                if (playPromise !== undefined) {
+                    playPromise.catch(error => {
+                        console.log(`Hover video play blocked for ${card.title}:`, error);
+                        // Optional future: add "tap to play" overlay here if blocked often
+                    });
+                }
+            }
+        });
+
+        div.addEventListener('mouseleave', () => {
+            const video = div.querySelector('video');
+            if (video) video.pause();
+        });
     });
 }
 
