@@ -60,7 +60,7 @@
             display: block;
             text-align: center;
             position: relative;
-            margin: 0.5rem 0;
+            margin: 2rem 0 1rem 0;
             white-space: nowrap;
             color: #000000;
         }
@@ -115,14 +115,7 @@
         }
 
         @media (max-width: 768px) {
-            .neon-title { font-size: 3.8rem; letter-spacing: -0.01em; }
-        }
-
-        /* Peachy Pong styles */
-        #pongCanvas {
-            background: #111827;
-            border-radius: 1.5rem;
-            box-shadow: 0 0 40px rgba(255, 105, 180, 0.3);
+            .neon-title { font-size: 3.8rem; margin: 1.5rem 0 1rem 0; }
         }
     </style>
 </head>
@@ -143,11 +136,11 @@
             <p class="text-zinc-300 mb-12 text-lg">This site contains adult themes and explicit proxy art.<br>You must be 18 or older to enter.</p>
             
             <div class="flex flex-col gap-5">
-                <button id="enterBtn" 
+                <button id="enterBtn" onclick="enterSite()"
                         class="w-full py-7 bg-gradient-to-r from-[#ff69b4] to-[#ff1493] text-3xl font-black rounded-3xl hover:scale-105 active:scale-95 transition-all">
                     YES, I'M PEACHY 🍑
                 </button>
-                <button id="leaveBtn" 
+                <button id="leaveBtn" onclick="leaveSite()"
                         class="w-full py-6 border-2 border-zinc-400 text-zinc-400 text-xl font-medium rounded-3xl hover:bg-zinc-900 transition-all">
                     NO, TAKE ME AWAY
                 </button>
@@ -305,10 +298,6 @@
                     <span class="white" data-text="C" style="--flicker-duration: 4.4s;">C</span>
                     <span class="white" data-text="H" style="--flicker-duration: 5.9s;">H</span>
                     <span class="white" data-text="Y" style="--flicker-duration: 4.7s;">Y</span>
-                    <span class="white" data-text=" " style="--flicker-duration: 6s;"> </span>
-                    <span class="white" data-text="P" style="--flicker-duration: 4.3s;">P</span>
-                    <span class="white" data-text="I" style="--flicker-duration: 5.1s;">I</span>
-                    <span class="white" data-text="E" style="--flicker-duration: 3.8s;">E</span>
                 </div>
                 
                 <div class="grid grid-cols-2 md:grid-cols-3 gap-10 text-8xl">
@@ -370,7 +359,7 @@
     </div>
 
     <script>
-        // Peach explosion
+        // Peach explosion – defined first so it's always available
         let peachCanvas = null;
         let peachCtx = null;
 
@@ -383,6 +372,7 @@
         }
 
         function peachConfetti() {
+            initPeachCanvas();
             document.body.appendChild(peachCanvas);
             peachCanvas.width = innerWidth;
             peachCanvas.height = innerHeight;
@@ -423,6 +413,28 @@
             setTimeout(draw, 16);
         }
 
+        // Card pool
+        const cardPool = [
+            { title: "Krenko, Mob Boss", 
+              image: "https://pbs.twimg.com/media/HCi22w9awAE4tMM?format=jpg&name=large",
+              video: "https://video.twimg.com/amplify_video/2028727590568243200/vid/avc1/320x426/wrStrxm_nNnXEPbJ.mp4?tag=24" },
+            { title: "Tifa Lockhart", 
+              image: "https://pbs.twimg.com/media/HCi29ELawAA6zwi?format=jpg&name=large",
+              video: "https://video.twimg.com/amplify_video/2028747352438378496/vid/avc1/320x424/P950ScTqeVTpDUmg.mp4?tag=24" },
+            { title: "The Ur-Dragon", 
+              image: "https://pbs.twimg.com/media/HCi2vUDawAEXtao?format=jpg&name=large",
+              video: "https://video.twimg.com/amplify_video/2028747228735774720/vid/avc1/320x424/8aihYcQMzigNG810.mp4?tag=24" },
+            { title: "Y'shtola, Night's Blessed", 
+              image: "https://pbs.twimg.com/media/HCi2rZ7bkAAXIXR?format=jpg&name=large",
+              video: "https://video.twimg.com/amplify_video/2028747763354329088/vid/avc1/320x424/DgeobI2A48ywBpwi.mp4?tag=24" },
+            { title: "Chatterfang, Squirrel General", 
+              image: "https://pbs.twimg.com/media/HCi2m2xawAAb6-F?format=jpg&name=large",
+              video: "https://video.twimg.com/amplify_video/2028755068837924864/vid/avc1/320x424/nFBCV9Pjekh4NPW8.mp4?tag=24" },
+            { title: "Koma, Cosmos Serpent", 
+              image: "https://pbs.twimg.com/media/HCi2644aQAAifUx?format=jpg&name=large",
+              video: "https://video.twimg.com/amplify_video/2028755542504845312/vid/avc1/320x424/3eA4tX6cRTH7CeOi.mp4?tag=24" }
+        ];
+
         function createCards() {
             const container = document.getElementById('cardSlots');
             container.innerHTML = '';
@@ -446,6 +458,7 @@
         }
 
         function enterSite() {
+            console.log("YES button clicked – entering site");
             const modal = document.getElementById('ageModal');
             modal.style.transition = 'opacity 1s ease, transform 1s ease';
             modal.style.opacity = '0';
@@ -460,6 +473,7 @@
         }
 
         function leaveSite() {
+            console.log("NO button clicked – redirecting");
             window.location.href = "https://www.google.com";
         }
 
@@ -474,7 +488,7 @@
             peachConfetti();
         }
 
-        // Peachy Pong
+        // Peachy Pong (simplified, but keeps confetti on win)
         let pongCanvas, pongCtx, pongRunning = false;
         let playerY = 200, aiY = 200;
         let ballX = 400, ballY = 250, ballDX = 5, ballDY = 3;
@@ -512,27 +526,21 @@
         function pongLoop() {
             if (!pongRunning) return;
 
-            // Clear
             pongCtx.fillStyle = '#111827';
             pongCtx.fillRect(0, 0, pongCanvas.width, pongCanvas.height);
 
-            // Paddles
             pongCtx.fillStyle = '#ff69b4';
-            pongCtx.fillRect(30, playerY, 20, 100); // player
-            pongCtx.fillRect(pongCanvas.width - 50, aiY, 20, 100); // AI
+            pongCtx.fillRect(30, playerY, 20, 100);
+            pongCtx.fillRect(pongCanvas.width - 50, aiY, 20, 100);
 
-            // Ball (peach emoji)
             pongCtx.font = '60px serif';
             pongCtx.fillText('🍑', ballX - 30, ballY + 20);
 
-            // Move ball
             ballX += ballDX;
             ballY += ballDY;
 
-            // Wall bounce
             if (ballY <= 0 || ballY >= pongCanvas.height - 60) ballDY = -ballDY;
 
-            // Paddle collision
             if (ballX <= 50 && ballY > playerY && ballY < playerY + 100) {
                 ballDX = -ballDX;
                 ballDY += (ballY - (playerY + 50)) * 0.1;
@@ -542,7 +550,6 @@
                 ballDY += (ballY - (aiY + 50)) * 0.1;
             }
 
-            // Scoring
             if (ballX < 0) {
                 aiScore++;
                 resetBall();
@@ -555,11 +562,9 @@
             document.getElementById('playerScore').textContent = playerScore;
             document.getElementById('aiScore').textContent = aiScore;
 
-            // AI movement (simple)
             if (aiY + 50 < ballY) aiY += 4;
             if (aiY + 50 > ballY) aiY -= 4;
 
-            // Game over
             if (playerScore >= 5 || aiScore >= 5) {
                 pongRunning = false;
                 document.getElementById('restartPong').classList.remove('hidden');
@@ -579,11 +584,13 @@
         window.onload = function() {
             initPeachCanvas();
             createCards();
-            document.getElementById('enterBtn').addEventListener('click', enterSite);
-            document.getElementById('leaveBtn').addEventListener('click', leaveSite);
+            const enterBtn = document.getElementById('enterBtn');
+            if (enterBtn) enterBtn.addEventListener('click', enterSite);
+            const leaveBtn = document.getElementById('leaveBtn');
+            if (leaveBtn) leaveBtn.addEventListener('click', leaveSite);
             switchPage('home');
             initPong();
-            console.log('%c🍑 Peachy Pong ready + all fixes applied!', 'color:#ff69b4; font-weight:bold');
+            console.log('%c🍑 Peach explosion + cards + age gate all fixed!', 'color:#ff69b4; font-weight:bold');
         };
     </script>
 </body>
