@@ -1,635 +1,411 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Peachy Proxy • 18+ Custom MTG Cards</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&display=swap');
-        
-        :root { --peach: #ff69b4; --peach-light: #ffb07c; }
-        body { font-family: 'Inter', system-ui, sans-serif; background: #0f0f17; color: white; margin: 0; overflow-x: hidden; }
-        .logo-font { font-family: 'Playfair Display', serif; }
-        
-        body.age-verified .main-content { filter: blur(0px) !important; opacity: 1 !important; transition: all 1s ease; }
-        
-        .twerk-bg {
-            position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: 0.12; overflow: hidden;
-        }
-        .peach-twerk {
-            position: absolute; font-size: 420px; animation: twerk 0.65s infinite alternate ease-in-out;
-            filter: drop-shadow(0 0 80px #ff69b4);
-        }
-        .peach-twerk:nth-child(2) { left: 15%; top: 20%; animation-duration: 0.55s; font-size: 280px; opacity: 0.7; }
-        .peach-twerk:nth-child(3) { right: 10%; bottom: 25%; animation-duration: 0.8s; font-size: 340px; }
-        
-        @keyframes twerk {
-            0%   { transform: translateY(0) skewY(0deg) scale(1); }
-            50%  { transform: translateY(-25px) skewY(12deg) scale(1.05); }
-            100% { transform: translateY(0) skewY(-8deg) scale(0.98); }
-        }
-        
-        .proxy-card {
-            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-            transform-style: preserve-3d;
-            background: transparent;
-            border: 2px solid rgba(255, 105, 180, 0.25);
-            border-radius: 1.5rem;
-            overflow: hidden;
-            cursor: pointer;
-        }
-        .proxy-card:hover {
-            transform: scale(1.15) rotate(6deg) translateY(-20px);
-            box-shadow: 0 0 60px rgba(255, 105, 180, 0.8), 0 40px 70px -20px rgba(0,0,0,0.6);
-            border-color: rgba(255, 105, 180, 0.8);
-        }
-        
-        #ageModal { animation: modalPop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1); }
-        @keyframes modalPop {
-            0% { transform: scale(0.6); opacity: 0; }
-            100% { transform: scale(1); opacity: 1; }
-        }
-
-        .neon-title {
-            font-size: 5.5rem;
-            line-height: 1;
-            font-weight: 900;
-            letter-spacing: -0.02em;
-            display: block;
-            text-align: center;
-            position: relative;
-            margin: 2rem 0 1rem 0;
-            white-space: nowrap;
-            color: #000000;
-        }
-
-        .neon-title span {
-            display: inline-block;
-            position: relative;
-            text-shadow: 
-                0 0 4px rgba(255, 105, 180, 0.7),
-                0 0 8px rgba(255, 105, 180, 0.5),
-                0 0 12px rgba(255, 105, 180, 0.35),
-                0 0 20px rgba(255, 20, 147, 0.25),
-                0 0 30px rgba(255, 20, 147, 0.15);
-            animation: flicker-off var(--flicker-duration) infinite alternate ease-in-out;
-        }
-
-        @keyframes flicker-off {
-            0%, 19.9%, 22%, 62.9%, 64%, 100% { opacity: 1; text-shadow: 0 0 4px rgba(255, 105, 180, 0.7),0 0 8px rgba(255, 105, 180, 0.5),0 0 12px rgba(255, 105, 180, 0.35),0 0 20px rgba(255, 20, 147, 0.25),0 0 30px rgba(255, 20, 147, 0.15); }
-            20%, 21.9%, 63% { opacity: 0.75; text-shadow: 0 0 2px rgba(255, 105, 180, 0.4),0 0 4px rgba(255, 105, 180, 0.3); }
-            21% { opacity: 0.65; text-shadow: 0 0 1px rgba(255, 105, 180, 0.2); }
-        }
-
-        .subtext { color: #d1d5db; font-size: 1.5rem; margin-top: 2rem; text-align: center; }
-
-        .social-icon {
-            transition: transform 0.3s ease;
-        }
-        .social-icon:hover {
-            animation: wobble 0.8s ease-in-out;
-        }
-        @keyframes wobble {
-            0%, 100% { transform: rotate(0deg); }
-            25% { transform: rotate(8deg); }
-            50% { transform: rotate(-8deg); }
-            75% { transform: rotate(4deg); }
-        }
-
-        @media (max-width: 768px) {
-            .neon-title { font-size: 3.8rem; margin: 1.5rem 0 1rem 0; }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Peachy Proxy · 18+ Custom MTG Cards</title>
+  <meta name="description" content="Anime-style custom Magic cards from Honolulu. 18+ brand, safe-for-work previews, The Grove with Hexy, playmats, and Peach Pong.">
+  <link rel="canonical" href="https://www.peachyproxies.com/">
+  <meta name="theme-color" content="#16100e">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Peachy Proxy">
+  <meta property="og:title" content="Peachy Proxy · 18+ Custom MTG Cards">
+  <meta property="og:description" content="Anime-style custom Magic cards from Honolulu. The Grove, playmats, and Peach Pong.">
+  <meta property="og:url" content="https://www.peachyproxies.com/">
+  <meta property="og:image" content="https://www.peachyproxies.com/assets/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Ukiyo-e painting of three capybaras in an onsen, peaches floating around them.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Peachy Proxy · 18+ Custom MTG Cards">
+  <meta name="twitter:description" content="Anime-style custom Magic cards from Honolulu. The Grove, playmats, and Peach Pong.">
+  <meta name="twitter:image" content="https://www.peachyproxies.com/assets/og.jpg">
+  <link rel="icon" href="assets/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="assets/apple-touch.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,560;9..144,700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/site.css">
+  <link rel="preload" as="image" href="assets/hero.webp" type="image/webp" media="(min-width: 761px)">
+  <link rel="preload" as="image" href="assets/hero-tall.webp" type="image/webp" media="(max-width: 760px)">
+  <script>
+    try {
+      if (sessionStorage.getItem("peachy-age") === "ok") {
+        document.documentElement.classList.add("is-in");
+      }
+    } catch (err) {}
+  </script>
 </head>
-<body class="bg-zinc-950 text-white overflow-x-hidden">
-    
-    <div class="twerk-bg">
-        <div class="peach-twerk left-1/4 top-1/3">🍑</div>
-        <div class="peach-twerk">🍑</div>
-        <div class="peach-twerk">🍑</div>
+<body>
+  <a class="skip" href="#links">Skip to links</a>
+
+  <div id="gate" role="dialog" aria-modal="true" aria-labelledby="gate-title">
+    <div class="gate-card">
+      <img src="assets/logo.webp" width="512" height="512" alt="Peachy Proxy logo: a peach in sunglasses, smoking.">
+      <h1 id="gate-title">Peachy Proxy</h1>
+      <p class="kicker">18+ only · NSFW custom MTG cards</p>
+      <p class="lede">Adults only. The previews on this page are the tame ones. The rest of the brand is not.</p>
+      <div class="gate-actions">
+        <button type="button" class="btn btn-peach" id="enter-btn">I'm 18. Let me in</button>
+        <button type="button" class="btn btn-ghost" id="leave-btn">Take me away</button>
+      </div>
+      <p class="fine">Honolulu, Hawaii · Made with love</p>
+    </div>
+  </div>
+
+  <div id="site">
+    <header class="top">
+      <a class="brand" href="#top">
+        <img src="assets/logo.webp" width="512" height="512" alt="">
+        <span>Peachy Proxy</span>
+      </a>
+      <nav aria-label="On this page">
+        <a href="#links">Links</a>
+        <a href="#grove">The Grove</a>
+        <a href="#cards">Cards</a>
+        <a href="#pong">Pong</a>
+      </nav>
+    </header>
+
+    <section class="hero-media" id="top">
+      <picture>
+        <source media="(max-width: 760px)" srcset="assets/hero-tall.webp" type="image/webp">
+        <source media="(max-width: 760px)" srcset="assets/hero-tall.jpg">
+        <source srcset="assets/hero.webp" type="image/webp">
+        <img src="assets/hero.jpg" width="2200" height="550" alt="Ukiyo-e painting of three capybaras soaking in an onsen, with peaches in the water and blossoms overhead." fetchpriority="high">
+      </picture>
+    </section>
+
+    <div class="ticket">
+      <img src="assets/logo.webp" width="512" height="512" alt="">
+      <div>
+        <p class="kicker">18+ only · NSFW custom MTG cards</p>
+        <h1>Peachy Proxy</h1>
+        <p>Anime-style custom cards, made in Honolulu. The gallery below is the safe-for-work stuff.</p>
+        <p class="where">Honolulu, Hawaii · Made with love</p>
+      </div>
+      <div class="seal" aria-hidden="true">18+</div>
     </div>
 
-    <!-- AGE GATE -->
-    <div id="ageModal" class="fixed inset-0 bg-black/95 z-[9999] flex items-center justify-center">
-        <div class="max-w-md text-center px-8">
-            <div class="text-8xl mb-8 animate-bounce">🍑</div>
-            <h1 class="logo-font text-6xl font-black tracking-tighter glow-text mb-4">PEACHY PROXY</h1>
-            <div class="text-2xl text-rose-400 font-medium mb-10">18+ ONLY • NSFW CUSTOM MTG CARDS</div>
-            <p class="text-zinc-300 mb-12 text-lg">This site contains adult themes and explicit proxy art.<br>You must be 18 or older to enter.</p>
-            
-            <div class="flex flex-col gap-5">
-                <button id="enterBtn" 
-                        class="w-full py-7 bg-gradient-to-r from-[#ff69b4] to-[#ff1493] text-3xl font-black rounded-3xl hover:scale-105 active:scale-95 transition-all">
-                    YES, I'M PEACHY 🍑
-                </button>
-                <button id="leaveBtn" 
-                        class="w-full py-6 border-2 border-zinc-400 text-zinc-400 text-xl font-medium rounded-3xl hover:bg-zinc-900 transition-all">
-                    NO, TAKE ME AWAY
-                </button>
+    <main id="main" tabindex="-1">
+      <section class="wrap panel" id="links">
+        <p class="kicker">Link hub</p>
+        <h2>Everything, one tap.</h2>
+        <p class="deck">Shops, feeds, and the print tool. Patreon is the main page.</p>
+
+        <a class="feature" href="https://www.patreon.com/peachyproxy" target="_blank" rel="noopener noreferrer">
+          <span class="feature-kicker">Start here</span>
+          <span class="feature-name">Patreon</span>
+          <span class="feature-note">The main page. New cards land here.</span>
+        </a>
+
+        <div class="groups">
+          <div>
+            <p class="group-label">Watch</p>
+            <div class="stack">
+              <a class="link-row" href="https://www.youtube.com/@PeachyProxy" target="_blank" rel="noopener noreferrer">
+                <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 7.5v9l8-4.5-8-4.5z" fill="currentColor"/></svg></span>
+                <span class="link-copy">
+                  <span class="link-name">The Grove</span>
+                  <span class="link-note">YouTube. Hexy, fifteen seconds, one Magic fact.</span>
+                </span>
+                <span class="link-go" aria-hidden="true">↗</span>
+              </a>
+              <a class="link-row" data-link="tiktok" href="https://www.tiktok.com/@mtgdestiny" target="_blank" rel="noopener noreferrer">
+                <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 17a3 3 0 1 1 0-6V6l8-1.5V8L9 9.5"/></svg></span>
+                <span class="link-copy">
+                  <span class="link-name">TikTok</span>
+                  <span class="link-note">Daily Hexy shorts and the Daily Peachy Showcase.</span>
+                </span>
+                <span class="link-go" aria-hidden="true">↗</span>
+              </a>
             </div>
-            <div class="mt-10 text-xs text-zinc-500">Honolulu, Hawaii • Made with love</div>
+          </div>
+
+          <div>
+            <p class="group-label">Shop</p>
+            <div class="stack">
+              <a class="link-row" href="https://www.etsy.com/shop/PeachyPlaymats" target="_blank" rel="noopener noreferrer">
+                <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6.5 8h11l-1 12h-9l-1-12zM9 8V7a3 3 0 0 1 6 0v1"/></svg></span>
+                <span class="link-copy">
+                  <span class="link-name">PeachyPlaymats</span>
+                  <span class="link-note">Playmats for the table.</span>
+                </span>
+                <span class="link-go" aria-hidden="true">↗</span>
+              </a>
+              <a class="link-row" href="https://peachproxy.gumroad.com/l/wwumlu" target="_blank" rel="noopener noreferrer">
+                <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 4h12v16H6zM9 8h6M9 12h6"/></svg></span>
+                <span class="link-copy">
+                  <span class="link-name">Kaalia pack <span class="tag">Featured</span></span>
+                  <span class="link-note">Kaalia Japan Showcase on Gumroad.</span>
+                </span>
+                <span class="link-go" aria-hidden="true">↗</span>
+              </a>
+              <a class="link-row" href="https://peachproxy.gumroad.com/l/cfldp" target="_blank" rel="noopener noreferrer">
+                <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 4h12v16H6zM9 8h6"/></svg></span>
+                <span class="link-copy">
+                  <span class="link-name">Tifa pack</span>
+                  <span class="link-note">Tifa Lockhart deck pack.</span>
+                </span>
+                <span class="link-go" aria-hidden="true">↗</span>
+              </a>
+              <a class="link-row" href="https://peachproxy.gumroad.com/l/rpbwmp" target="_blank" rel="noopener noreferrer">
+                <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 4h12v16H6zM9 8h6"/></svg></span>
+                <span class="link-copy">
+                  <span class="link-name">Ur-Dragon pack</span>
+                  <span class="link-note">The Ur-Dragon deck pack.</span>
+                </span>
+                <span class="link-go" aria-hidden="true">↗</span>
+              </a>
+              <a class="link-row" href="https://peachproxy.gumroad.com/l/vdywwh" target="_blank" rel="noopener noreferrer">
+                <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 4h12v16H6zM9 8h6"/></svg></span>
+                <span class="link-copy">
+                  <span class="link-name">Winota pack</span>
+                  <span class="link-note">Winota, Joiner of Forces deck pack.</span>
+                </span>
+                <span class="link-go" aria-hidden="true">↗</span>
+              </a>
+              <a class="link-row" href="https://peachproxy.gumroad.com/l/htmzw" target="_blank" rel="noopener noreferrer">
+                <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 4h12v16H6zM9 8h6"/></svg></span>
+                <span class="link-copy">
+                  <span class="link-name">Y'shtola pack</span>
+                  <span class="link-note">Y'shtola deck pack.</span>
+                </span>
+                <span class="link-go" aria-hidden="true">↗</span>
+              </a>
+              <a class="link-row" href="https://peachproxy.gumroad.com" target="_blank" rel="noopener noreferrer">
+                <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16v12H4zM8 7V5h8v2"/></svg></span>
+                <span class="link-copy">
+                  <span class="link-name">Gumroad</span>
+                  <span class="link-note">The whole shop, in one list.</span>
+                </span>
+                <span class="link-go" aria-hidden="true">↗</span>
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <p class="group-label">Around the web</p>
+            <div class="stack">
+              <a class="link-row" href="https://www.instagram.com/peachyprox/" target="_blank" rel="noopener noreferrer">
+                <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="4" width="16" height="16" rx="4"/><circle cx="12" cy="12" r="3.5"/><circle cx="17.2" cy="6.8" r="0.8" fill="currentColor" stroke="none"/></svg></span>
+                <span class="link-copy">
+                  <span class="link-name">Instagram</span>
+                  <span class="link-note">@peachyprox</span>
+                </span>
+                <span class="link-go" aria-hidden="true">↗</span>
+              </a>
+              <a class="link-row" data-link="facebook" href="https://www.facebook.com/Peachyproxies" target="_blank" rel="noopener noreferrer">
+                <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H8v3h2v7h3v-7h2.6l.4-3H13v-2c0-.6.4-1 1-1z" fill="currentColor"/></svg></span>
+                <span class="link-copy">
+                  <span class="link-name">Facebook</span>
+                  <span class="link-note">Peachy Proxies</span>
+                </span>
+                <span class="link-go" aria-hidden="true">↗</span>
+              </a>
+              <a class="link-row" data-link="x" href="https://x.com/PeachyProxy" target="_blank" rel="noopener noreferrer">
+                <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 5l14 14M19 5L5 19" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></span>
+                <span class="link-copy">
+                  <span class="link-name">X</span>
+                  <span class="link-note">The 18+ account.</span>
+                </span>
+                <span class="link-go" aria-hidden="true">↗</span>
+              </a>
+              <a class="link-row" href="https://www.deviantart.com/peachyproxy" target="_blank" rel="noopener noreferrer">
+                <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 4h9l-2 4h4l-9 12 2-6H7z"/></svg></span>
+                <span class="link-copy">
+                  <span class="link-name">DeviantArt</span>
+                  <span class="link-note">Peachy Proxy</span>
+                </span>
+                <span class="link-go" aria-hidden="true">↗</span>
+              </a>
+              <a class="link-row" href="https://ko-fi.com/peachyproxy" target="_blank" rel="noopener noreferrer">
+                <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24"><text x="12" y="16" text-anchor="middle" font-size="13" font-family="Outfit, sans-serif" font-weight="700" fill="currentColor">K</text></svg></span>
+                <span class="link-copy">
+                  <span class="link-name">Ko-fi</span>
+                  <span class="link-note">Peachy Proxy on Ko-fi.</span>
+                </span>
+                <span class="link-go" aria-hidden="true">↗</span>
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <p class="group-label">Print</p>
+            <div class="stack">
+              <a class="link-row" href="https://mpcfill.com/" target="_blank" rel="noopener noreferrer">
+                <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 8V4h10v4M6 16H4V8h16v8h-2M7 12h10v8H7z"/></svg></span>
+                <span class="link-copy">
+                  <span class="link-name">MPC Fill</span>
+                  <span class="link-note">Easy MPC filler.</span>
+                </span>
+                <span class="link-go" aria-hidden="true">↗</span>
+              </a>
+              <a class="link-row" href="https://www.printingproxies.com/" target="_blank" rel="noopener noreferrer">
+                <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 4h12v16H6zM8 8h8M8 12h8"/></svg></span>
+                <span class="link-copy">
+                  <span class="link-name">Printing Proxies</span>
+                  <span class="link-note">NSFW printing specialist.</span>
+                </span>
+                <span class="link-go" aria-hidden="true">↗</span>
+              </a>
+              <a class="link-row" href="https://notmpc.com/" target="_blank" rel="noopener noreferrer">
+                <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="8"/><path d="M8 12h8"/></svg></span>
+                <span class="link-copy">
+                  <span class="link-name">Not MPC</span>
+                  <span class="link-note">High-quality alternative.</span>
+                </span>
+                <span class="link-go" aria-hidden="true">↗</span>
+              </a>
+            </div>
+          </div>
         </div>
-    </div>
+      </section>
 
-    <!-- SIDEBAR -->
-    <div class="fixed left-0 top-0 bottom-0 w-[187px] bg-zinc-900/95 backdrop-blur-2xl border-r border-[#ff69b4]/30 z-50 flex flex-col">
-        <div class="p-6 flex items-center gap-3 border-b border-[#ff69b4]/20">
-            <img src="https://twemoji.maxcdn.com/v/14.0.2/72x72/1f351.png" 
-                 class="w-11 h-11 rounded-2xl shadow-xl" alt="Peachy Proxy">
-            <div>
-                <h1 class="logo-font text-2xl font-black tracking-tighter text-[#ffb07c]">PEACHY</h1>
-                <p class="text-xs text-rose-300 -mt-1">PROXY</p>
+      <section class="wrap" id="grove">
+        <div class="grove">
+          <img class="grove-bg" src="assets/hero-tall.webp" alt="" width="1600" height="900">
+          <div class="grove-copy">
+            <p class="kicker">YouTube</p>
+            <h2>The Grove</h2>
+            <p class="deck">Hexy hosts. Goblin, glasses, no patience for a long video. The shorts run about fifteen seconds. One Magic fact, then she's gone.</p>
+            <div class="grove-actions">
+              <a class="btn btn-peach" href="https://www.youtube.com/@PeachyProxy" target="_blank" rel="noopener noreferrer">Watch The Grove</a>
+              <a class="btn btn-ghost" data-link="tiktok" href="https://www.tiktok.com/@mtgdestiny" target="_blank" rel="noopener noreferrer">Hexy on TikTok</a>
             </div>
+          </div>
+          <div class="grove-card">
+            <picture>
+              <source srcset="assets/hexy.webp" type="image/webp">
+              <img src="assets/hexy.jpg" width="840" height="1176" alt="Hexy, the goblin host of The Grove, on the card Hexing Squelcher." loading="lazy">
+            </picture>
+          </div>
         </div>
-        
-        <nav class="flex-1 px-4 py-8">
-            <ul class="space-y-1 text-base">
-                <li onclick="switchPage('home')" class="nav-item flex items-center gap-3 px-5 py-4 rounded-3xl hover:bg-white/10 cursor-pointer active">
-                    <i class="fas fa-home w-5"></i><span class="font-medium">Proxy Decks</span>
-                </li>
-                <li onclick="switchPage('games')" class="nav-item flex items-center gap-3 px-5 py-4 rounded-3xl hover:bg-white/10 cursor-pointer">
-                    <i class="fas fa-gamepad w-5"></i><span class="font-medium">Peachy Pong</span>
-                </li>
-                <li onclick="switchPage('decks')" class="nav-item flex items-center gap-3 px-5 py-4 rounded-3xl hover:bg-white/10 cursor-pointer">
-                    <i class="fas fa-layer-group w-5"></i><span class="font-medium">Deck Teasers</span>
-                </li>
-                <li onclick="switchPage('social')" class="nav-item flex items-center gap-3 px-5 py-4 rounded-3xl hover:bg-white/10 cursor-pointer">
-                    <i class="fas fa-users w-5"></i><span class="font-medium">Socials</span>
-                </li>
-                <li onclick="switchPage('recommended')" class="nav-item flex items-center gap-3 px-5 py-4 rounded-3xl hover:bg-white/10 cursor-pointer">
-                    <i class="fas fa-star w-5"></i><span class="font-medium">Hyped Sites</span>
-                </li>
-            </ul>
-        </nav>
-        
-        <div class="p-4 border-t border-[#ff69b4]/20">
-            <a href="https://www.patreon.com/peachyproxy" target="_blank"
-               class="block text-center py-3 text-6xl hover:scale-110 hover:rotate-6 transition-all duration-300">
-                🍑
-            </a>
-            <p class="text-xs text-center text-zinc-500 mt-1">Join on Patreon</p>
-        </div>
-    </div>
+      </section>
 
-    <!-- MAIN CONTENT -->
-    <div class="main-content ml-[187px] min-h-screen transition-all duration-700" style="filter: blur(24px); opacity: 0.3;">
-        
-        <!-- HOME – static cards with enhanced hover -->
-        <div id="home-page" class="page min-h-screen pt-16">
-            <div class="max-w-7xl mx-auto px-10 py-12">
-                <div class="text-center mb-12">
-                    <div class="neon-title">
-                        <span class="peach" data-text="C" style="--flicker-duration: 4.2s;">C</span>
-                        <span class="peach" data-text="H" style="--flicker-duration: 5.1s;">H</span>
-                        <span class="peach" data-text="O" style="--flicker-duration: 3.8s;">O</span>
-                        <span class="peach" data-text="O" style="--flicker-duration: 4.9s;">O</span>
-                        <span class="peach" data-text="S" style="--flicker-duration: 5.6s;">S</span>
-                        <span class="peach" data-text="E" style="--flicker-duration: 4.5s;">E</span>
-                        <span class="peach" data-text="  ">  </span>
-                        <span class="peach" data-text="Y" style="--flicker-duration: 3.9s;">Y</span>
-                        <span class="peach" data-text="O" style="--flicker-duration: 5.3s;">O</span>
-                        <span class="peach" data-text="U" style="--flicker-duration: 4.7s;">U</span>
-                        <span class="peach" data-text="R" style="--flicker-duration: 5.8s;">R</span>
-                    </div>
-                    <div class="neon-title">
-                        <span class="white" data-text="P" style="--flicker-duration: 4.8s;">P</span>
-                        <span class="white" data-text="E" style="--flicker-duration: 5.2s;">E</span>
-                        <span class="white" data-text="A" style="--flicker-duration: 3.7s;">A</span>
-                        <span class="white" data-text="C" style="--flicker-duration: 4.4s;">C</span>
-                        <span class="white" data-text="H" style="--flicker-duration: 5.9s;">H</span>
-                    </div>
-                    <p class="subtext mt-8">Hover to feel it pop • Click to claim on Patreon</p>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8" id="cardSlots"></div>
-            </div>
-        </div>
-
-        <!-- RECOMMENDED -->
-        <div id="recommended-page" class="page hidden min-h-screen pt-16">
-            <div class="max-w-5xl mx-auto px-10 py-12">
-                <div class="text-center mb-12">
-                    <div class="neon-title">
-                        <span class="peach" data-text="F" style="--flicker-duration: 4.6s;">F</span>
-                        <span class="peach" data-text="O" style="--flicker-duration: 5.4s;">O</span>
-                        <span class="peach" data-text="R" style="--flicker-duration: 3.9s;">R</span>
-                        <span class="peach" data-text=" " style="--flicker-duration: 6s;"> </span>
-                        <span class="peach" data-text="A" style="--flicker-duration: 4.2s;">A</span>
-                        <span class="peach" data-text="L" style="--flicker-duration: 5.7s;">L</span>
-                        <span class="peach" data-text="L" style="--flicker-duration: 4.1s;">L</span>
-                        <span class="peach" data-text=" " style="--flicker-duration: 5s;"> </span>
-                        <span class="peach" data-text="Y" style="--flicker-duration: 3.6s;">Y</span>
-                        <span class="peach" data-text="O" style="--flicker-duration: 5.5s;">O</span>
-                        <span class="peach" data-text="U" style="--flicker-duration: 4.8s;">U</span>
-                        <span class="peach" data-text="R" style="--flicker-duration: 5.3s;">R</span>
-                    </div>
-                    <div class="neon-title">
-                        <span class="white" data-text="P" style="--flicker-duration: 4.3s;">P</span>
-                        <span class="white" data-text="R" style="--flicker-duration: 5.1s;">R</span>
-                        <span class="white" data-text="I" style="--flicker-duration: 3.8s;">I</span>
-                        <span class="white" data-text="N" style="--flicker-duration: 4.9s;">N</span>
-                        <span class="white" data-text="T" style="--flicker-duration: 5.6s;">T</span>
-                        <span class="white" data-text="I" style="--flicker-duration: 4.4s;">I</span>
-                        <span class="white" data-text="N" style="--flicker-duration: 5.2s;">N</span>
-                        <span class="white" data-text="G" style="--flicker-duration: 3.7s;">G</span>
-                        <span class="white" data-text=" " style="--flicker-duration: 6s;"> </span>
-                        <span class="white" data-text="N" style="--flicker-duration: 4.7s;">N</span>
-                        <span class="white" data-text="E" style="--flicker-duration: 5.4s;">E</span>
-                        <span class="white" data-text="E" style="--flicker-duration: 4.0s;">E</span>
-                        <span class="white" data-text="D" style="--flicker-duration: 5.8s;">D</span>
-                        <span class="white" data-text="S" style="--flicker-duration: 4.5s;">S</span>
-                    </div>
-                    <p class="text-zinc-400 text-xl mt-8">Peach-approved partners 🍑</p>
-                </div>
-                
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <a href="https://www.printingproxies.com/" target="_blank" class="proxy-card group">
-                        <img src="https://pbs.twimg.com/media/HCoJ98YbYAAcpl6?format=jpg&name=large" class="w-full h-[520px] object-cover transition-all duration-300 group-hover:brightness-110 group-hover:scale-105 group-hover:shadow-[0_0_40px_rgba(255,105,180,0.6)] group-hover:rotate-2" alt="Printing Proxies">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent transition-opacity duration-300 group-hover:opacity-0"></div>
-                        <div class="absolute bottom-0 left-0 right-0 p-8 transition-all duration-300 group-hover:translate-y-[-10px]">
-                            <div class="text-[#ffb07c] text-xs tracking-[3px] opacity-80 group-hover:opacity-100">NSFW PRINTING SPECIALIST</div>
-                            <div class="text-4xl font-black logo-font mt-2 leading-none">Printing Proxies</div>
-                        </div>
-                    </a>
-                    <a href="https://mpcfill.com/" target="_blank" class="proxy-card group">
-                        <img src="https://pbs.twimg.com/media/HCjEKaaawAY-fIY?format=jpg&name=large" class="w-full h-[520px] object-cover transition-all duration-300 group-hover:brightness-110 group-hover:scale-105 group-hover:shadow-[0_0_40px_rgba(255,105,180,0.6)] group-hover:rotate-2" alt="MPC Fill">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent transition-opacity duration-300 group-hover:opacity-0"></div>
-                        <div class="absolute bottom-0 left-0 right-0 p-8 transition-all duration-300 group-hover:translate-y-[-10px]">
-                            <div class="text-[#ffb07c] text-xs tracking-[3px] opacity-80 group-hover:opacity-100">EASY MPC FILLER</div>
-                            <div class="text-4xl font-black logo-font mt-2 leading-none">MPC Fill</div>
-                        </div>
-                    </a>
-                    <a href="https://notmpc.com/" target="_blank" class="proxy-card group">
-                        <img src="https://pbs.twimg.com/media/HCjEVOTawAYQynP?format=jpg&name=large" class="w-full h-[520px] object-cover transition-all duration-300 group-hover:brightness-110 group-hover:scale-105 group-hover:shadow-[0_0_40px_rgba(255,105,180,0.6)] group-hover:rotate-2" alt="Not MPC">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent transition-opacity duration-300 group-hover:opacity-0"></div>
-                        <div class="absolute bottom-0 left-0 right-0 p-8 transition-all duration-300 group-hover:translate-y-[-10px]">
-                            <div class="text-[#ffb07c] text-xs tracking-[3px] opacity-80 group-hover:opacity-100">HIGH-QUALITY ALTERNATIVE</div>
-                            <div class="text-4xl font-black logo-font mt-2 leading-none">Not MPC</div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <!-- SOCIALS -->
-        <div id="social-page" class="page hidden min-h-screen pt-16 flex items-center justify-center">
-            <div class="text-center max-w-4xl mx-auto">
-                <div class="neon-title mb-16" style="white-space: nowrap;">
-                    <span class="peach" data-text="A" style="--flicker-duration: 4.2s;">A</span>
-                    <span class="peach" data-text="L" style="--flicker-duration: 5.1s;">L</span>
-                    <span class="peach" data-text="L" style="--flicker-duration: 3.8s;">L</span>
-                    <span class="peach" data-text=" " style="--flicker-duration: 6s;"> </span>
-                    <span class="peach" data-text="T" style="--flicker-duration: 4.9s;">T</span>
-                    <span class="peach" data-text="H" style="--flicker-duration: 5.6s;">H</span>
-                    <span class="peach" data-text="E" style="--flicker-duration: 4.5s;">E</span>
-                    <span class="peach" data-text=" " style="--flicker-duration: 5s;"> </span>
-                    <span class="white" data-text="P" style="--flicker-duration: 4.8s;">P</span>
-                    <span class="white" data-text="E" style="--flicker-duration: 5.2s;">E</span>
-                    <span class="white" data-text="A" style="--flicker-duration: 3.7s;">A</span>
-                    <span class="white" data-text="C" style="--flicker-duration: 4.4s;">C</span>
-                    <span class="white" data-text="H" style="--flicker-duration: 5.9s;">H</span>
-                    <span class="white" data-text="Y" style="--flicker-duration: 4.7s;">Y</span>
-                </div>
-                
-                <div class="grid grid-cols-2 md:grid-cols-3 gap-10 text-8xl">
-                    <a href="https://www.patreon.com/peachyproxy" target="_blank" class="social-icon hover:scale-125 transition flex flex-col items-center gap-3">
-                        <span class="text-[#ff69b4]">P</span><span class="text-sm text-zinc-400">Patreon</span>
-                    </a>
-                    <a href="https://x.com/PeachyProxy" target="_blank" class="social-icon hover:scale-125 transition flex flex-col items-center gap-3">
-                        <span class="text-[#ff69b4]">𝕏</span><span class="text-sm text-zinc-400">X / Twitter</span>
-                    </a>
-                    <a href="https://www.facebook.com/peachyproxies" target="_blank" class="social-icon hover:scale-125 transition flex flex-col items-center gap-3">
-                        <span class="text-[#ff69b4]">f</span><span class="text-sm text-zinc-400">Facebook</span>
-                    </a>
-                    <a href="https://www.instagram.com/peachyprox" target="_blank" class="social-icon hover:scale-125 transition flex flex-col items-center gap-3">
-                        <span class="text-[#ff69b4]">📸</span><span class="text-sm text-zinc-400">Instagram</span>
-                    </a>
-                    <a href="https://www.tiktok.com/@peachyproxy" target="_blank" class="social-icon hover:scale-125 transition flex flex-col items-center gap-3">
-                        <span class="text-[#ff69b4]">♪</span><span class="text-sm text-zinc-400">TikTok</span>
-                    </a>
-                    <a href="https://youtu.be/Aq5WXmQQooo?si=RRAGKhhc5988oqvo" target="_blank" class="social-icon hover:scale-125 transition flex flex-col items-center gap-3">
-                        <img src="https://twemoji.maxcdn.com/v/14.0.2/72x72/1f351.png" class="w-24 h-24" alt="Surprise">
-                        <span class="text-sm text-zinc-400">Surprise 🍑</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <!-- GAMES – PEACHY PONG (Easy Mode, Best of 3) -->
-        <div id="games-page" class="page hidden min-h-screen pt-16 flex flex-col items-center justify-center bg-zinc-950">
-            <div class="text-center mb-8">
-                <div class="neon-title">
-                    <span class="peach" data-text="P" style="--flicker-duration: 4.2s;">P</span>
-                    <span class="peach" data-text="E" style="--flicker-duration: 5.1s;">E</span>
-                    <span class="peach" data-text="A" style="--flicker-duration: 3.8s;">A</span>
-                    <span class="peach" data-text="C" style="--flicker-duration: 4.9s;">C</span>
-                    <span class="peach" data-text="H" style="--flicker-duration: 5.6s;">H</span>
-                    <span class="peach" data-text="Y" style="--flicker-duration: 4.5s;">Y</span>
-                    <span class="peach" data-text=" " style="--flicker-duration: 6s;"> </span>
-                    <span class="white" data-text="P" style="--flicker-duration: 4.8s;">P</span>
-                    <span class="white" data-text="O" style="--flicker-duration: 5.2s;">O</span>
-                    <span class="white" data-text="N" style="--flicker-duration: 3.7s;">N</span>
-                    <span class="white" data-text="G" style="--flicker-duration: 4.4s;">G</span>
-                </div>
-                <p class="text-zinc-300 text-xl mt-4">Easy Mode • Best of 3 (first to 2) • Mouse controls left paddle</p>
-            </div>
-
-            <canvas id="pongCanvas" width="800" height="500" class="rounded-3xl border-4 border-[#ff69b4]/40"></canvas>
-
-            <div class="mt-6 text-2xl font-bold">
-                Score: <span id="playerScore">0</span> - <span id="aiScore">0</span>
-            </div>
-
-            <button id="restartPong" class="mt-6 px-8 py-4 bg-gradient-to-r from-[#ff69b4] to-[#ff1493] text-black font-black text-2xl rounded-3xl hover:scale-105 transition-all hidden">
-                Play Again 🍑
+      <section class="wrap" id="cards">
+        <p class="kicker">Proxy showcase</p>
+        <h2>The tame ones.</h2>
+        <p class="deck">Safe-for-work previews. One of each. Tap a card to open it. The rest of the catalog is on Patreon and in the Gumroad packs.</p>
+        <div class="cards">
+          <figure class="proxy">
+            <button type="button" class="proxy-open" data-src="assets/cards/kaalia.webp" data-alt="Custom card: Kaalia of the Vast">
+              <img src="assets/cards/kaalia.webp" width="900" height="1260" alt="Custom card: Kaalia of the Vast" loading="lazy">
             </button>
+            <figcaption><strong>Kaalia of the Vast</strong>, another Peachy Proxy banger.</figcaption>
+          </figure>
+          <figure class="proxy">
+            <button type="button" class="proxy-open" data-src="assets/cards/boseiju.webp" data-alt="Custom card: Boseiju, Who Endures">
+              <img src="assets/cards/boseiju.webp" width="900" height="1260" alt="Custom card: Boseiju, Who Endures" loading="lazy">
+            </button>
+            <figcaption><strong>Boseiju, Who Endures</strong>, another Peachy Proxy banger.</figcaption>
+          </figure>
+          <figure class="proxy">
+            <button type="button" class="proxy-open" data-src="assets/cards/emrakul.webp" data-alt="Custom card: Emrakul, the Promised End">
+              <img src="assets/cards/emrakul.webp" width="900" height="1260" alt="Custom card: Emrakul, the Promised End" loading="lazy">
+            </button>
+            <figcaption><strong>Emrakul, the Promised End</strong>, another Peachy Proxy banger.</figcaption>
+          </figure>
+          <figure class="proxy">
+            <button type="button" class="proxy-open" data-src="assets/cards/kozilek.webp" data-alt="Custom card: Kozilek, Butcher of Truth">
+              <img src="assets/cards/kozilek.webp" width="900" height="1260" alt="Custom card: Kozilek, Butcher of Truth" loading="lazy">
+            </button>
+            <figcaption><strong>Kozilek, Butcher of Truth</strong>, another Peachy Proxy banger.</figcaption>
+          </figure>
+          <figure class="proxy">
+            <button type="button" class="proxy-open" data-src="assets/cards/kolaghan.webp" data-alt="Custom card: Dragonlord Kolaghan">
+              <img src="assets/cards/kolaghan.webp" width="900" height="1260" alt="Custom card: Dragonlord Kolaghan" loading="lazy">
+            </button>
+            <figcaption><strong>Dragonlord Kolaghan</strong>, another Peachy Proxy banger.</figcaption>
+          </figure>
+          <figure class="proxy">
+            <button type="button" class="proxy-open" data-src="assets/cards/karazikar.webp" data-alt="Custom card: Karazikar, the Eye Tyrant">
+              <img src="assets/cards/karazikar.webp" width="900" height="1260" alt="Custom card: Karazikar, the Eye Tyrant" loading="lazy">
+            </button>
+            <figcaption><strong>Karazikar, the Eye Tyrant</strong>, another Peachy Proxy banger.</figcaption>
+          </figure>
+          <figure class="proxy">
+            <button type="button" class="proxy-open" data-src="assets/cards/krang.webp" data-alt="Custom card: Krang, Utrom Warlord">
+              <img src="assets/cards/krang.webp" width="900" height="1260" alt="Custom card: Krang, Utrom Warlord" loading="lazy">
+            </button>
+            <figcaption><strong>Krang, Utrom Warlord</strong>, another Peachy Proxy banger.</figcaption>
+          </figure>
+          <figure class="proxy">
+            <button type="button" class="proxy-open" data-src="assets/cards/elturel.webp" data-alt="Custom card: Elturel Survivors">
+              <img src="assets/cards/elturel.webp" width="900" height="1260" alt="Custom card: Elturel Survivors" loading="lazy">
+            </button>
+            <figcaption><strong>Elturel Survivors</strong>, another Peachy Proxy banger.</figcaption>
+          </figure>
+          <figure class="proxy">
+            <button type="button" class="proxy-open" data-src="assets/cards/cathedral.webp" data-alt="Custom card: Cathedral of War">
+              <img src="assets/cards/cathedral.webp" width="900" height="1260" alt="Custom card: Cathedral of War" loading="lazy">
+            </button>
+            <figcaption><strong>Cathedral of War</strong>, another Peachy Proxy banger.</figcaption>
+          </figure>
+          <figure class="proxy">
+            <button type="button" class="proxy-open" data-src="assets/cards/crusade.webp" data-alt="Custom card: Crusade">
+              <img src="assets/cards/crusade.webp" width="900" height="1260" alt="Custom card: Crusade" loading="lazy">
+            </button>
+            <figcaption><strong>Crusade</strong>, another Peachy Proxy banger.</figcaption>
+          </figure>
         </div>
+      </section>
 
-     <!-- Deck Teasers – pure card showcase -->
-<div id="decks-page" class="page hidden min-h-screen pt-16">
-    <div class="max-w-7xl mx-auto px-10 py-12">
-        <div class="text-center mb-12">
-            <div class="neon-title">
-                <span class="peach" data-text="D" style="--flicker-duration: 4.2s;">D</span>
-                <span class="peach" data-text="E" style="--flicker-duration: 5.1s;">E</span>
-                <span class="peach" data-text="C" style="--flicker-duration: 3.8s;">C</span>
-                <span class="peach" data-text="K" style="--flicker-duration: 4.9s;">K</span>
-                <span class="peach" data-text=" " style="--flicker-duration: 6s;"> </span>
-                <span class="peach" data-text="T" style="--flicker-duration: 4.5s;">T</span>
-                <span class="peach" data-text="E" style="--flicker-duration: 5.3s;">E</span>
-                <span class="peach" data-text="A" style="--flicker-duration: 3.9s;">A</span>
-                <span class="peach" data-text="S" style="--flicker-duration: 5.2s;">S</span>
-                <span class="peach" data-text="E" style="--flicker-duration: 4.7s;">E</span>
-                <span class="peach" data-text="R" style="--flicker-duration: 6.0s;">R</span>
-                <span class="peach" data-text="S" style="--flicker-duration: 4.4s;">S</span>
-            </div>
-            <p class="text-zinc-400 text-xl mt-4">Pure card previews & upcoming heat 🍑</p>
+      <section class="wrap dark-block" id="pong">
+        <p class="kicker">Mini game</p>
+        <h2>Peach Pong</h2>
+        <p class="deck">Best of 3. First to 2. You get the left paddle. Mouse on a desk, finger on the glass. Hexy has the right side.</p>
+        <div class="scoreboard" aria-live="polite">
+          <div class="score-side">
+            <strong id="you-score">0</strong>
+            You
+          </div>
+          <div class="score-mid">Best of 3</div>
+          <div class="score-side">
+            <strong id="hexy-score">0</strong>
+            Hexy
+          </div>
         </div>
-
-        <div class="columns-1 md:columns-2 lg:columns-3 xl:columns-4 gap-6 space-y-6">
-            <!-- All cards – no text, just image + hover -->
-            <div class="proxy-card break-inside-avoid group mb-6">
-                <img src="https://pbs.twimg.com/media/HCjbBWEawA4xtbE?format=jpg&name=large" class="w-full rounded-3xl transition-all duration-300 group-hover:brightness-125 group-hover:scale-110 group-hover:shadow-[0_0_60px_rgba(255,105,180,0.8)] group-hover:rotate-6" alt="Deck Teaser">
-            </div>
-            <div class="proxy-card break-inside-avoid group mb-6">
-                <img src="https://pbs.twimg.com/media/HCja-vdawAMea_l?format=jpg&name=large" class="w-full rounded-3xl transition-all duration-300 group-hover:brightness-125 group-hover:scale-110 group-hover:shadow-[0_0_60px_rgba(255,105,180,0.8)] group-hover:rotate-6" alt="Deck Teaser">
-            </div>
-            <div class="proxy-card break-inside-avoid group mb-6">
-                <img src="https://pbs.twimg.com/media/HCja8UlaYAAvQE8?format=jpg&name=large" class="w-full rounded-3xl transition-all duration-300 group-hover:brightness-125 group-hover:scale-110 group-hover:shadow-[0_0_60px_rgba(255,105,180,0.8)] group-hover:rotate-6" alt="Deck Teaser">
-            </div>
-            <div class="proxy-card break-inside-avoid group mb-6">
-                <img src="https://pbs.twimg.com/media/HCja2rfawAIDrS8?format=jpg&name=large" class="w-full rounded-3xl transition-all duration-300 group-hover:brightness-125 group-hover:scale-110 group-hover:shadow-[0_0_60px_rgba(255,105,180,0.8)] group-hover:rotate-6" alt="Deck Teaser">
-            </div>
-            <div class="proxy-card break-inside-avoid group mb-6">
-                <img src="https://pbs.twimg.com/media/HCja0sTawAM8sUF?format=jpg&name=large" class="w-full rounded-3xl transition-all duration-300 group-hover:brightness-125 group-hover:scale-110 group-hover:shadow-[0_0_60px_rgba(255,105,180,0.8)] group-hover:rotate-6" alt="Deck Teaser">
-            </div>
-            <div class="proxy-card break-inside-avoid group mb-6">
-                <img src="https://pbs.twimg.com/media/HCjayHYawAA-VU8?format=jpg&name=large" class="w-full rounded-3xl transition-all duration-300 group-hover:brightness-125 group-hover:scale-110 group-hover:shadow-[0_0_60px_rgba(255,105,180,0.8)] group-hover:rotate-6" alt="Deck Teaser">
-            </div>
-
-            <!-- New 6 cards -->
-            <div class="proxy-card break-inside-avoid group mb-6">
-                <img src="https://pbs.twimg.com/media/HCjcup9awAIhZXj?format=jpg&name=large" class="w-full rounded-3xl transition-all duration-300 group-hover:brightness-125 group-hover:scale-110 group-hover:shadow-[0_0_60px_rgba(255,105,180,0.8)] group-hover:rotate-6" alt="Deck Teaser">
-            </div>
-            <div class="proxy-card break-inside-avoid group mb-6">
-                <img src="https://pbs.twimg.com/media/HCjcrBUaYAAMszI?format=jpg&name=large" class="w-full rounded-3xl transition-all duration-300 group-hover:brightness-125 group-hover:scale-110 group-hover:shadow-[0_0_60px_rgba(255,105,180,0.8)] group-hover:rotate-6" alt="Deck Teaser">
-            </div>
-            <div class="proxy-card break-inside-avoid group mb-6">
-                <img src="https://pbs.twimg.com/media/HCjcoHIawAA9zoB?format=jpg&name=large" class="w-full rounded-3xl transition-all duration-300 group-hover:brightness-125 group-hover:scale-110 group-hover:shadow-[0_0_60px_rgba(255,105,180,0.8)] group-hover:rotate-6" alt="Deck Teaser">
-            </div>
-            <div class="proxy-card break-inside-avoid group mb-6">
-                <img src="https://pbs.twimg.com/media/HCjcldWbYAAXIBF?format=jpg&name=large" class="w-full rounded-3xl transition-all duration-300 group-hover:brightness-125 group-hover:scale-110 group-hover:shadow-[0_0_60px_rgba(255,105,180,0.8)] group-hover:rotate-6" alt="Deck Teaser">
-            </div>
-            <div class="proxy-card break-inside-avoid group mb-6">
-                <img src="https://pbs.twimg.com/media/HCjcehEasAADHy9?format=jpg&name=large" class="w-full rounded-3xl transition-all duration-300 group-hover:brightness-125 group-hover:scale-110 group-hover:shadow-[0_0_60px_rgba(255,105,180,0.8)] group-hover:rotate-6" alt="Deck Teaser">
-            </div>
-            <div class="proxy-card break-inside-avoid group mb-6">
-                <img src="https://pbs.twimg.com/media/HCjccCpakAAoosh?format=jpg&name=large" class="w-full rounded-3xl transition-all duration-300 group-hover:brightness-125 group-hover:scale-110 group-hover:shadow-[0_0_60px_rgba(255,105,180,0.8)] group-hover:rotate-6" alt="Deck Teaser">
-            </div>
+        <div class="controls">
+          <div class="seg" role="radiogroup" aria-label="Difficulty">
+            <button type="button" role="radio" data-diff="easy" aria-checked="true">Easy</button>
+            <button type="button" role="radio" data-diff="medium" aria-checked="false">Medium</button>
+            <button type="button" role="radio" data-diff="hard" aria-checked="false">Hard</button>
+          </div>
+          <button type="button" class="sound-btn" id="sound-btn" aria-pressed="false">Sound off</button>
+          <button type="button" class="reset-btn" id="reset-btn">Reset match</button>
         </div>
+        <p class="diff-note" id="diff-note">Hexy is half asleep.</p>
+        <div class="table-wrap">
+          <canvas id="pong-board" width="960" height="540" aria-label="Peach Pong. You control the left paddle."></canvas>
+          <div class="pong-result" id="pong-result" hidden>
+            <p id="pong-result-text"></p>
+            <button type="button" class="btn btn-peach" id="again-btn">Play again</button>
+          </div>
+        </div>
+        <div class="nudge">
+          <button type="button" data-nudge="-1">Up</button>
+          <button type="button" data-nudge="1">Down</button>
+        </div>
+        <p class="hint">Drag on the table, or use the buttons. Arrow keys work after you click the table. Sound stays off until you turn it on.</p>
+      </section>
+    </main>
+
+    <footer>
+      <p>Stay peachy. · Honolulu, Hawaii · Made with love · 18+</p>
+    </footer>
+  </div>
+
+  <dialog id="lightbox" aria-label="Card preview">
+    <button type="button" class="icon-btn light-close" id="light-close" aria-label="Close">✕</button>
+    <div class="light-frame">
+      <button type="button" class="icon-btn side" id="light-prev" aria-label="Previous card">‹</button>
+      <img id="light-img" alt="">
+      <button type="button" class="icon-btn side" id="light-next" aria-label="Next card">›</button>
     </div>
-</div>
+    <p id="light-cap"></p>
+  </dialog>
 
-    <script>
-        // Peach explosion – lighter version for better performance
-        let peachCanvas = null;
-        let peachCtx = null;
-
-        function initPeachCanvas() {
-            if (!peachCanvas) {
-                peachCanvas = document.createElement('canvas');
-                peachCanvas.style.cssText = 'position:fixed;inset:0;z-index:99999;pointer-events:none';
-                peachCtx = peachCanvas.getContext('2d');
-            }
-        }
-
-        function peachConfetti() {
-            initPeachCanvas();
-            document.body.appendChild(peachCanvas);
-            peachCanvas.width = innerWidth;
-            peachCanvas.height = innerHeight;
-            peachCtx.clearRect(0, 0, peachCanvas.width, peachCanvas.height);
-
-            const pieces = [];
-            for (let i = 0; i < 40; i++) { // reduced from 70
-                pieces.push({
-                    x: Math.random() * peachCanvas.width,
-                    y: Math.random() * peachCanvas.height - 300,
-                    size: Math.random() * 28 + 16,
-                    speed: Math.random() * 8 + 6,
-                    angle: Math.random() * Math.PI * 2,
-                    rot: Math.random() * 0.08 - 0.04
-                });
-            }
-
-            let frame = 0;
-            function draw() {
-                peachCtx.clearRect(0, 0, peachCanvas.width, peachCanvas.height);
-                let alive = false;
-                pieces.forEach(p => {
-                    p.y += p.speed;
-                    p.x += Math.sin(p.angle) * 2;
-                    p.angle += p.rot;
-                    peachCtx.save();
-                    peachCtx.translate(p.x, p.y);
-                    peachCtx.rotate(frame * p.rot);
-                    peachCtx.font = `${p.size}px serif`;
-                    peachCtx.fillText('🍑', 0, 0);
-                    peachCtx.restore();
-                    if (p.y < peachCanvas.height + 120) alive = true;
-                });
-                frame++;
-                if (alive) requestAnimationFrame(draw);
-                else peachCanvas.remove();
-            }
-            setTimeout(draw, 16);
-        }
-
-        // Card pool (static images only)
-        const cardPool = [
-            { title: "Krenko, Mob Boss", image: "https://pbs.twimg.com/media/HCi22w9awAE4tMM?format=jpg&name=large" },
-            { title: "Tifa Lockhart", image: "https://pbs.twimg.com/media/HCi29ELawAA6zwi?format=jpg&name=large" },
-            { title: "The Ur-Dragon", image: "https://pbs.twimg.com/media/HCi2vUDawAEXtao?format=jpg&name=large" },
-            { title: "Y'shtola, Night's Blessed", image: "https://pbs.twimg.com/media/HCi2rZ7bkAAXIXR?format=jpg&name=large" },
-            { title: "Chatterfang, Squirrel General", image: "https://pbs.twimg.com/media/HCi2m2xawAAb6-F?format=jpg&name=large" },
-            { title: "Koma, Cosmos Serpent", image: "https://pbs.twimg.com/media/HCi2644aQAAifUx?format=jpg&name=large" }
-        ];
-
-        function createCards() {
-            const container = document.getElementById('cardSlots');
-            container.innerHTML = '';
-            cardPool.forEach(card => {
-                const div = document.createElement('div');
-                div.className = `proxy-card relative group h-[520px] overflow-hidden rounded-3xl`;
-                div.innerHTML = `
-                    <img src="${card.image}" class="w-full h-full object-cover transition-all duration-300 group-hover:brightness-125 group-hover:scale-110 group-hover:shadow-[0_0_60px_rgba(255,105,180,0.8)] group-hover:rotate-6" alt="${card.title}">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent transition-opacity duration-300 group-hover:opacity-0"></div>
-                    <div class="absolute bottom-0 left-0 right-0 p-8 transition-all duration-300 group-hover:translate-y-[-10px]">
-                        <div class="text-[#ffb07c] text-xs tracking-[3px] opacity-80 group-hover:opacity-100">PATREON EXCLUSIVE</div>
-                        <div class="text-4xl font-black logo-font mt-2 leading-none">${card.title}</div>
-                    </div>
-                    <div class="absolute inset-0" onclick="window.open('https://www.patreon.com/peachyproxy', '_blank')"></div>
-                `;
-                container.appendChild(div);
-            });
-        }
-
-        function enterSite() {
-            const modal = document.getElementById('ageModal');
-            modal.style.transition = 'opacity 1s ease, transform 1s ease';
-            modal.style.opacity = '0';
-            modal.style.transform = 'scale(0.8)';
-            setTimeout(() => {
-                modal.remove();
-                document.body.classList.add('age-verified');
-                document.querySelector('.main-content').style.filter = 'none';
-                document.querySelector('.main-content').style.opacity = '1';
-                peachConfetti();
-            }, 800);
-        }
-
-        function leaveSite() {
-            window.location.href = "https://www.google.com";
-        }
-
-        function switchPage(page) {
-            document.querySelectorAll('.page').forEach(p => p.classList.add('hidden'));
-            document.getElementById(page + '-page').classList.remove('hidden');
-            
-            document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active', 'bg-white/10'));
-            const active = Array.from(document.querySelectorAll('.nav-item')).find(li => li.getAttribute('onclick').includes(`'${page}'`));
-            if (active) active.classList.add('active', 'bg-white/10');
-
-            peachConfetti();
-        }
-
-        // Peachy Pong – Easy Mode, Best of 3 (first to 2)
-        let pongCanvas, pongCtx, pongRunning = false;
-        let playerY = 200, aiY = 200;
-        let ballX = 400, ballY = 250, ballDX = 6, ballDY = 4; // base speed up 20%
-        let playerScore = 0, aiScore = 0;
-        const WIN_SCORE = 2;
-
-        function initPong() {
-            pongCanvas = document.getElementById('pongCanvas');
-            pongCtx = pongCanvas.getContext('2d');
-            pongCanvas.width = 800;
-            pongCanvas.height = 500;
-
-            pongCanvas.addEventListener('mousemove', (e) => {
-                const rect = pongCanvas.getBoundingClientRect();
-                playerY = e.clientY - rect.top - 50;
-                if (playerY < 0) playerY = 0;
-                if (playerY > pongCanvas.height - 100) playerY = pongCanvas.height - 100;
-            });
-
-            document.getElementById('restartPong').onclick = () => {
-                playerScore = 0;
-                aiScore = 0;
-                ballX = 400; ballY = 250;
-                ballDX = 6; ballDY = 4;
-                document.getElementById('playerScore').textContent = 0;
-                document.getElementById('aiScore').textContent = 0;
-                document.getElementById('restartPong').classList.add('hidden');
-                pongRunning = true;
-                pongLoop();
-            };
-
-            pongRunning = true;
-            pongLoop();
-        }
-
-        function pongLoop() {
-            if (!pongRunning) return;
-
-            pongCtx.fillStyle = '#111827';
-            pongCtx.fillRect(0, 0, pongCanvas.width, pongCanvas.height);
-
-            pongCtx.fillStyle = '#ff69b4';
-            pongCtx.fillRect(30, playerY, 20, 100);
-            pongCtx.fillRect(pongCanvas.width - 50, aiY, 20, 100);
-
-            pongCtx.font = '60px serif';
-            pongCtx.fillText('🍑', ballX - 30, ballY + 20);
-
-            ballX += ballDX;
-            ballY += ballDY;
-
-            if (ballY <= 0 || ballY >= pongCanvas.height - 60) ballDY = -ballDY;
-
-            if (ballX <= 50 && ballY > playerY && ballY < playerY + 100) {
-                ballDX = -ballDX;
-                ballDY += (ballY - (playerY + 50)) * 0.08; // easy angle
-            }
-            if (ballX >= pongCanvas.width - 50 && ballY > aiY && ballY < aiY + 100) {
-                ballDX = -ballDX;
-                ballDY += (ballY - (aiY + 50)) * 0.08;
-            }
-
-            if (ballX < 0) {
-                aiScore++;
-                resetBall();
-            }
-            if (ballX > pongCanvas.width) {
-                playerScore++;
-                resetBall();
-            }
-
-            document.getElementById('playerScore').textContent = playerScore;
-            document.getElementById('aiScore').textContent = aiScore;
-
-            // Easy AI: slower tracking
-            if (aiY + 50 < ballY) aiY += 3.5;
-            if (aiY + 50 > ballY) aiY -= 3.5;
-
-            if (playerScore >= WIN_SCORE || aiScore >= WIN_SCORE) {
-                pongRunning = false;
-                document.getElementById('restartPong').classList.remove('hidden');
-                peachConfetti();
-            }
-
-            requestAnimationFrame(pongLoop);
-        }
-
-        function resetBall() {
-            ballX = pongCanvas.width / 2;
-            ballY = pongCanvas.height / 2;
-            ballDX = (Math.random() > 0.5 ? 6 : -6);
-            ballDY = Math.random() * 6 - 3;
-        }
-
-        window.onload = function() {
-            initPeachCanvas();
-            createCards();
-            const enterBtn = document.getElementById('enterBtn');
-            if (enterBtn) enterBtn.addEventListener('click', enterSite);
-            const leaveBtn = document.getElementById('leaveBtn');
-            if (leaveBtn) leaveBtn.addEventListener('click', leaveSite);
-            switchPage('home');
-            initPong();
-            console.log('%c🍑 Static cards with enhanced hover + Peachy Pong easy mode ready!', 'color:#ff69b4; font-weight:bold');
-        };
-    </script>
+  <script src="js/site.js" defer></script>
 </body>
 </html>
