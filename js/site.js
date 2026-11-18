@@ -44,8 +44,8 @@ function initGate() {
     document.documentElement.classList.add("is-in");
     site.removeAttribute("inert");
     try { sessionStorage.setItem("peachy-age", "ok"); } catch (err) {}
-    const main = document.getElementById("main");
-    if (main) main.focus();
+    const stage = document.getElementById("stage");
+    if (stage) stage.focus();
   }
 
   enter.addEventListener("click", admit);
@@ -609,7 +609,41 @@ function initPong() {
   wake();
 }
 
+function initTabs() {
+  const buttons = [...document.querySelectorAll("[data-tab]")];
+  const panels = [...document.querySelectorAll("[data-panel]")];
+  const known = new Set(panels.map((panel) => panel.dataset.panel));
+
+  function show(name) {
+    if (!known.has(name)) name = "links";
+    panels.forEach((panel) => {
+      const on = panel.dataset.panel === name;
+      panel.hidden = !on;
+    });
+    buttons.forEach((button) => {
+      const on = button.dataset.tab === name;
+      button.classList.toggle("is-on", on);
+      button.setAttribute("aria-selected", on ? "true" : "false");
+    });
+    if (name === "pong") {
+      requestAnimationFrame(() => window.dispatchEvent(new Event("resize")));
+    }
+  }
+
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const name = button.dataset.tab;
+      show(name);
+      if (location.hash !== "#" + name) history.replaceState(null, "", "#" + name);
+    });
+  });
+
+  window.addEventListener("hashchange", () => show(location.hash.slice(1)));
+  show(location.hash.slice(1) || "links");
+}
+
 applyLinkUrls();
 initGate();
+initTabs();
 initLightbox();
 initPong();

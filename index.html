@@ -37,7 +37,7 @@
   </script>
 </head>
 <body>
-  <a class="skip" href="#links">Skip to links</a>
+  <a class="skip" href="#stage">Skip to the stage</a>
 
   <div id="gate" role="dialog" aria-modal="true" aria-labelledby="gate-title">
     <div class="gate-card">
@@ -54,224 +54,118 @@
   </div>
 
   <div id="site">
-    <header class="top">
-      <a class="brand" href="#top">
-        <img src="assets/logo.webp" width="512" height="512" alt="">
-        <span>Peachy Proxy</span>
-      </a>
-      <nav aria-label="On this page">
-        <a href="#links">Links</a>
-        <a href="#grove">The Grove</a>
-        <a href="#cards">Cards</a>
-        <a href="#pong">Pong</a>
-      </nav>
-    </header>
-
-    <section class="hero-media" id="top">
-      <picture>
-        <source media="(max-width: 760px)" srcset="assets/hero-tall.webp" type="image/webp">
-        <source media="(max-width: 760px)" srcset="assets/hero-tall.jpg">
-        <source srcset="assets/hero.webp" type="image/webp">
-        <img src="assets/hero.jpg" width="2200" height="550" alt="Ukiyo-e painting of three capybaras soaking in an onsen, with peaches in the water and blossoms overhead." fetchpriority="high">
-      </picture>
-    </section>
-
-    <div class="ticket">
-      <img src="assets/logo.webp" width="512" height="512" alt="">
-      <div>
-        <p class="kicker">18+ only · NSFW custom MTG cards</p>
-        <h1>Peachy Proxy</h1>
-        <p>Anime-style custom cards, made in Honolulu. The gallery below is the safe-for-work stuff.</p>
-        <p class="where">Honolulu, Hawaii · Made with love</p>
-      </div>
-      <div class="seal" aria-hidden="true">18+</div>
-    </div>
-
-    <main id="main" tabindex="-1">
-      <section class="wrap panel" id="links">
-        <p class="kicker">Link hub</p>
-        <h2>Everything, one tap.</h2>
-        <p class="deck">Shops, feeds, and the print tool. Patreon is the main page.</p>
-
-        <a class="feature" href="https://www.patreon.com/peachyproxy" target="_blank" rel="noopener noreferrer">
-          <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24"><text x="12" y="16" text-anchor="middle" font-size="13" font-family="Outfit, sans-serif" font-weight="700" fill="currentColor">P</text></svg></span>
-          <span class="link-name">Patreon</span>
-          <span class="link-go" aria-hidden="true">↗</span>
+    <div class="shell">
+      <aside class="rail">
+        <a class="rail-brand" href="#links">
+          <img src="assets/logo.webp" width="512" height="512" alt="">
+          <div>
+            <strong>Peachy</strong>
+            <span>PROXY</span>
+          </div>
         </a>
+        <nav class="rail-nav" aria-label="Sections">
+          <button type="button" class="tab is-on" data-tab="links" aria-selected="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M8 7h8M8 12h8M8 17h5"/></svg>
+            Links
+          </button>
+          <button type="button" class="tab" data-tab="showcase" aria-selected="false">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="3" width="16" height="18" rx="2"/></svg>
+            Showcase
+          </button>
+          <button type="button" class="tab" data-tab="shop" aria-selected="false">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 8h12l-1 12H7L6 8zM9 8V7a3 3 0 0 1 6 0v1"/></svg>
+            Shop
+          </button>
+          <button type="button" class="tab" data-tab="print" aria-selected="false">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 8V4h10v4M6 16H4V8h16v8h-2M7 12h10v8H7z"/></svg>
+            Print
+          </button>
+          <button type="button" class="tab" data-tab="pong" aria-selected="false">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M4 8v8M20 8v8"/></svg>
+            Pong
+          </button>
+        </nav>
+        <p class="rail-foot">Honolulu, Hawaii<br>Made with love · 18+</p>
+      </aside>
 
-        <div class="groups">
-          <div>
-            <p class="group-label">Watch</p>
-            <div class="stack">
-              <a class="link-row" href="https://www.youtube.com/@PeachyProxy" target="_blank" rel="noopener noreferrer">
-                <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 7.5v9l8-4.5-8-4.5z" fill="currentColor"/></svg></span>
-                <span class="link-copy">
-                  <span class="link-name">The Grove</span>
-                </span>
-                <span class="link-go" aria-hidden="true">↗</span>
-              </a>
-              <a class="link-row" data-link="tiktok" href="https://www.tiktok.com/@mtgdestiny" target="_blank" rel="noopener noreferrer">
-                <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 17a3 3 0 1 1 0-6V6l8-1.5V8L9 9.5"/></svg></span>
-                <span class="link-copy">
-                  <span class="link-name">TikTok</span>
-                </span>
-                <span class="link-go" aria-hidden="true">↗</span>
-              </a>
-            </div>
-          </div>
-
-          <div>
-            <p class="group-label">Shop</p>
-            <div class="stack">
-              <a class="link-row" href="https://www.etsy.com/shop/PeachyPlaymats" target="_blank" rel="noopener noreferrer">
-                <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6.5 8h11l-1 12h-9l-1-12zM9 8V7a3 3 0 0 1 6 0v1"/></svg></span>
-                <span class="link-copy">
-                  <span class="link-name">PeachyPlaymats</span>
-                </span>
-                <span class="link-go" aria-hidden="true">↗</span>
-              </a>
-              <a class="link-row" href="https://peachproxy.gumroad.com/l/wwumlu" target="_blank" rel="noopener noreferrer">
-                <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 4h12v16H6zM9 8h6M9 12h6"/></svg></span>
-                <span class="link-copy">
-                  <span class="link-name">Kaalia pack</span>
-                </span>
-                <span class="link-go" aria-hidden="true">↗</span>
-              </a>
-              <a class="link-row" href="https://peachproxy.gumroad.com/l/cfldp" target="_blank" rel="noopener noreferrer">
-                <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 4h12v16H6zM9 8h6"/></svg></span>
-                <span class="link-copy">
-                  <span class="link-name">Tifa pack</span>
-                </span>
-                <span class="link-go" aria-hidden="true">↗</span>
-              </a>
-              <a class="link-row" href="https://peachproxy.gumroad.com/l/rpbwmp" target="_blank" rel="noopener noreferrer">
-                <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 4h12v16H6zM9 8h6"/></svg></span>
-                <span class="link-copy">
-                  <span class="link-name">Ur-Dragon pack</span>
-                </span>
-                <span class="link-go" aria-hidden="true">↗</span>
-              </a>
-              <a class="link-row" href="https://peachproxy.gumroad.com/l/vdywwh" target="_blank" rel="noopener noreferrer">
-                <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 4h12v16H6zM9 8h6"/></svg></span>
-                <span class="link-copy">
-                  <span class="link-name">Winota pack</span>
-                </span>
-                <span class="link-go" aria-hidden="true">↗</span>
-              </a>
-              <a class="link-row" href="https://peachproxy.gumroad.com/l/htmzw" target="_blank" rel="noopener noreferrer">
-                <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 4h12v16H6zM9 8h6"/></svg></span>
-                <span class="link-copy">
-                  <span class="link-name">Y'shtola pack</span>
-                </span>
-                <span class="link-go" aria-hidden="true">↗</span>
-              </a>
-              <a class="link-row" href="https://peachproxy.gumroad.com" target="_blank" rel="noopener noreferrer">
-                <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16v12H4zM8 7V5h8v2"/></svg></span>
-                <span class="link-copy">
-                  <span class="link-name">Gumroad</span>
-                </span>
-                <span class="link-go" aria-hidden="true">↗</span>
-              </a>
-            </div>
-          </div>
-
-          <div>
-            <p class="group-label">Around the web</p>
-            <div class="stack">
-              <a class="link-row" href="https://www.instagram.com/peachyprox/" target="_blank" rel="noopener noreferrer">
-                <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="4" width="16" height="16" rx="4"/><circle cx="12" cy="12" r="3.5"/><circle cx="17.2" cy="6.8" r="0.8" fill="currentColor" stroke="none"/></svg></span>
-                <span class="link-copy">
-                  <span class="link-name">Instagram</span>
-                </span>
-                <span class="link-go" aria-hidden="true">↗</span>
-              </a>
-              <a class="link-row" data-link="facebook" href="https://www.facebook.com/Peachyproxies" target="_blank" rel="noopener noreferrer">
-                <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H8v3h2v7h3v-7h2.6l.4-3H13v-2c0-.6.4-1 1-1z" fill="currentColor"/></svg></span>
-                <span class="link-copy">
-                  <span class="link-name">Facebook</span>
-                </span>
-                <span class="link-go" aria-hidden="true">↗</span>
-              </a>
-              <a class="link-row" data-link="x" href="https://x.com/PeachyProxy" target="_blank" rel="noopener noreferrer">
-                <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 5l14 14M19 5L5 19" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></span>
-                <span class="link-copy">
-                  <span class="link-name">X</span>
-                </span>
-                <span class="link-go" aria-hidden="true">↗</span>
-              </a>
-              <a class="link-row" href="https://www.deviantart.com/peachyproxy" target="_blank" rel="noopener noreferrer">
-                <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 4h9l-2 4h4l-9 12 2-6H7z"/></svg></span>
-                <span class="link-copy">
-                  <span class="link-name">DeviantArt</span>
-                </span>
-                <span class="link-go" aria-hidden="true">↗</span>
-              </a>
-              <a class="link-row" href="https://ko-fi.com/peachyproxy" target="_blank" rel="noopener noreferrer">
-                <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24"><text x="12" y="16" text-anchor="middle" font-size="13" font-family="Outfit, sans-serif" font-weight="700" fill="currentColor">K</text></svg></span>
-                <span class="link-copy">
-                  <span class="link-name">Ko-fi</span>
-                </span>
-                <span class="link-go" aria-hidden="true">↗</span>
-              </a>
-            </div>
-          </div>
-
-          <div>
-            <p class="group-label">Print</p>
-            <div class="stack">
-              <a class="link-row" href="https://mpcfill.com/" target="_blank" rel="noopener noreferrer">
-                <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 8V4h10v4M6 16H4V8h16v8h-2M7 12h10v8H7z"/></svg></span>
-                <span class="link-copy">
-                  <span class="link-name">MPC Fill</span>
-                </span>
-                <span class="link-go" aria-hidden="true">↗</span>
-              </a>
-              <a class="link-row" href="https://www.printingproxies.com/" target="_blank" rel="noopener noreferrer">
-                <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 4h12v16H6zM8 8h8M8 12h8"/></svg></span>
-                <span class="link-copy">
-                  <span class="link-name">Printing Proxies</span>
-                </span>
-                <span class="link-go" aria-hidden="true">↗</span>
-              </a>
-              <a class="link-row" href="https://notmpc.com/" target="_blank" rel="noopener noreferrer">
-                <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="8"/><path d="M8 12h8"/></svg></span>
-                <span class="link-copy">
-                  <span class="link-name">Not MPC</span>
-                </span>
-                <span class="link-go" aria-hidden="true">↗</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="wrap" id="grove">
-        <div class="grove">
-          <img class="grove-bg" src="assets/hero-tall.webp" alt="" width="1600" height="900">
-          <div class="grove-copy">
-            <p class="kicker">YouTube</p>
-            <h2>The Grove</h2>
-            <p class="deck">Hexy hosts. Goblin, glasses, no patience for a long video. The shorts run about fifteen seconds. One Magic fact, then she's gone.</p>
-            <div class="grove-actions">
-              <a class="btn btn-peach" href="https://www.youtube.com/@PeachyProxy" target="_blank" rel="noopener noreferrer">Watch The Grove</a>
-              <a class="btn btn-ghost" data-link="tiktok" href="https://www.tiktok.com/@mtgdestiny" target="_blank" rel="noopener noreferrer">Hexy on TikTok</a>
-            </div>
-          </div>
-          <div class="grove-card">
+      <main class="stage" id="stage" tabindex="-1">
+        <section class="stage-panel" id="links" data-panel="links">
+          <div class="hero">
             <picture>
-              <source srcset="assets/hexy.webp" type="image/webp">
-              <img src="assets/hexy.jpg" width="840" height="1176" alt="Hexy, the goblin host of The Grove, on the card Hexing Squelcher." loading="lazy">
+              <source media="(max-width: 760px)" srcset="assets/hero-tall.webp" type="image/webp">
+              <source media="(max-width: 760px)" srcset="assets/hero-tall.jpg">
+              <source srcset="assets/hero.webp" type="image/webp">
+              <img class="hero-img" src="assets/hero.jpg" width="2200" height="550" alt="Ukiyo-e painting of three capybaras soaking in an onsen, with peaches in the water and blossoms overhead." fetchpriority="high">
             </picture>
+            <div class="hero-copy">
+              <img class="hero-logo" src="assets/logo.webp" width="512" height="512" alt="">
+              <p class="kicker">18+ only · NSFW custom MTG cards</p>
+              <h1>Peachy Proxy</h1>
+              <p class="where">Honolulu, Hawaii · Made with love</p>
+            </div>
           </div>
-        </div>
-      </section>
 
-      <section class="wrap" id="cards">
-        <p class="kicker">Proxy showcase</p>
-        <h2>The tame ones.</h2>
-        <p class="deck">Safe-for-work previews. One of each. Tap a card to open it. The rest of the catalog is on Patreon and in the Gumroad packs.</p>
-        <div class="cards">
-          <figure class="proxy">
+          <div class="tile-grid">
+            <a class="tile tile-main" href="https://www.patreon.com/peachyproxy" target="_blank" rel="noopener noreferrer">
+              <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24"><text x="12" y="16" text-anchor="middle" font-size="13" font-family="Outfit, sans-serif" font-weight="700" fill="currentColor">P</text></svg></span>
+              <span class="tile-name">Patreon</span>
+            </a>
+            <a class="tile" href="https://www.youtube.com/@PeachyProxy" target="_blank" rel="noopener noreferrer">
+              <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 7.5v9l8-4.5-8-4.5z" fill="currentColor"/></svg></span>
+              <span class="tile-name">The Grove</span>
+            </a>
+            <a class="tile" data-link="tiktok" href="https://www.tiktok.com/@mtgdestiny" target="_blank" rel="noopener noreferrer">
+              <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 17a3 3 0 1 1 0-6V6l8-1.5V8L9 9.5"/></svg></span>
+              <span class="tile-name">TikTok</span>
+            </a>
+            <a class="tile" href="https://www.instagram.com/peachyprox/" target="_blank" rel="noopener noreferrer">
+              <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="4" width="16" height="16" rx="4"/><circle cx="12" cy="12" r="3.5"/></svg></span>
+              <span class="tile-name">Instagram</span>
+            </a>
+            <a class="tile" data-link="facebook" href="https://www.facebook.com/Peachyproxies" target="_blank" rel="noopener noreferrer">
+              <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H8v3h2v7h3v-7h2.6l.4-3H13v-2c0-.6.4-1 1-1z" fill="currentColor"/></svg></span>
+              <span class="tile-name">Facebook</span>
+            </a>
+            <a class="tile" data-link="x" href="https://x.com/PeachyProxy" target="_blank" rel="noopener noreferrer">
+              <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 5l14 14M19 5L5 19"/></svg></span>
+              <span class="tile-name">X</span>
+            </a>
+            <a class="tile" href="https://www.deviantart.com/peachyproxy" target="_blank" rel="noopener noreferrer">
+              <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 4h9l-2 4h4l-9 12 2-6H7z"/></svg></span>
+              <span class="tile-name">DeviantArt</span>
+            </a>
+            <a class="tile" href="https://ko-fi.com/peachyproxy" target="_blank" rel="noopener noreferrer">
+              <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24"><text x="12" y="16" text-anchor="middle" font-size="13" font-family="Outfit, sans-serif" font-weight="700" fill="currentColor">K</text></svg></span>
+              <span class="tile-name">Ko-fi</span>
+            </a>
+          </div>
+
+          <div class="grove">
+            <img class="grove-bg" src="assets/hero-tall.webp" alt="" width="1600" height="900">
+            <div class="grove-copy">
+              <p class="kicker">YouTube</p>
+              <h2>The Grove</h2>
+              <p class="deck">Hexy hosts. Goblin, glasses, no patience for a long video. The shorts run about fifteen seconds. One Magic fact, then she's gone.</p>
+              <div class="grove-actions">
+                <a class="btn btn-peach" href="https://www.youtube.com/@PeachyProxy" target="_blank" rel="noopener noreferrer">Watch The Grove</a>
+                <a class="btn btn-ghost" data-link="tiktok" href="https://www.tiktok.com/@mtgdestiny" target="_blank" rel="noopener noreferrer">Hexy on TikTok</a>
+              </div>
+            </div>
+            <div class="grove-card">
+              <picture>
+                <source srcset="assets/hexy.webp" type="image/webp">
+                <img src="assets/hexy.jpg" width="840" height="1176" alt="Hexy, the goblin host of The Grove, on the card Hexing Squelcher.">
+              </picture>
+            </div>
+          </div>
+        </section>
+
+        <section class="stage-panel" id="showcase" data-panel="showcase" hidden>
+          <p class="kicker">Proxy showcase</p>
+          <h2>The tame ones.</h2>
+          <p class="deck">Safe-for-work previews. One of each. Tap a card to open it.</p>
+          <div class="cards">
+            <figure class="proxy">
             <button type="button" class="proxy-open" data-src="assets/cards/kaalia.webp" data-alt="Custom card: Kaalia of the Vast">
               <img src="assets/cards/kaalia.webp" width="900" height="1260" alt="Custom card: Kaalia of the Vast" loading="lazy">
             </button>
@@ -331,11 +225,65 @@
             </button>
             <figcaption><strong>Crusade</strong>, another Peachy Proxy banger.</figcaption>
           </figure>
-        </div>
-      </section>
+          </div>
+        </section>
 
-      <section class="wrap dark-block" id="pong">
-        <p class="kicker">Mini game</p>
+        <section class="stage-panel" id="shop" data-panel="shop" hidden>
+          <p class="kicker">Shop</p>
+          <h2>Packs and playmats.</h2>
+          <div class="tile-grid">
+            <a class="tile" href="https://www.etsy.com/shop/PeachyPlaymats" target="_blank" rel="noopener noreferrer">
+              <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6.5 8h11l-1 12h-9l-1-12zM9 8V7a3 3 0 0 1 6 0v1"/></svg></span>
+              <span class="tile-name">PeachyPlaymats</span>
+            </a>
+            <a class="tile" href="https://peachproxy.gumroad.com/l/wwumlu" target="_blank" rel="noopener noreferrer">
+              <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 4h12v16H6z"/></svg></span>
+              <span class="tile-name">Kaalia pack</span>
+            </a>
+            <a class="tile" href="https://peachproxy.gumroad.com/l/cfldp" target="_blank" rel="noopener noreferrer">
+              <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 4h12v16H6z"/></svg></span>
+              <span class="tile-name">Tifa pack</span>
+            </a>
+            <a class="tile" href="https://peachproxy.gumroad.com/l/rpbwmp" target="_blank" rel="noopener noreferrer">
+              <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 4h12v16H6z"/></svg></span>
+              <span class="tile-name">Ur-Dragon pack</span>
+            </a>
+            <a class="tile" href="https://peachproxy.gumroad.com/l/vdywwh" target="_blank" rel="noopener noreferrer">
+              <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 4h12v16H6z"/></svg></span>
+              <span class="tile-name">Winota pack</span>
+            </a>
+            <a class="tile" href="https://peachproxy.gumroad.com/l/htmzw" target="_blank" rel="noopener noreferrer">
+              <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 4h12v16H6z"/></svg></span>
+              <span class="tile-name">Y'shtola pack</span>
+            </a>
+            <a class="tile" href="https://peachproxy.gumroad.com" target="_blank" rel="noopener noreferrer">
+              <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16v12H4z"/></svg></span>
+              <span class="tile-name">Gumroad</span>
+            </a>
+          </div>
+        </section>
+
+        <section class="stage-panel" id="print" data-panel="print" hidden>
+          <p class="kicker">Print</p>
+          <h2>On cardboard.</h2>
+          <div class="posters">
+            <a class="poster" href="https://mpcfill.com/" target="_blank" rel="noopener noreferrer">
+              <span class="poster-kicker">Easy MPC filler</span>
+              <span class="poster-name">MPC Fill</span>
+            </a>
+            <a class="poster" href="https://www.printingproxies.com/" target="_blank" rel="noopener noreferrer">
+              <span class="poster-kicker">NSFW printing specialist</span>
+              <span class="poster-name">Printing Proxies</span>
+            </a>
+            <a class="poster" href="https://notmpc.com/" target="_blank" rel="noopener noreferrer">
+              <span class="poster-kicker">High-quality alternative</span>
+              <span class="poster-name">Not MPC</span>
+            </a>
+          </div>
+        </section>
+
+        <section class="stage-panel" id="pong" data-panel="pong" hidden>
+          <p class="kicker">Mini game</p>
         <h2>Peach Pong</h2>
         <p class="deck">Best of 3. First to 2. You get the left paddle. Mouse on a desk, finger on the glass. Hexy has the right side.</p>
         <div class="scoreboard" aria-live="polite">
@@ -371,12 +319,9 @@
           <button type="button" data-nudge="1">Down</button>
         </div>
         <p class="hint">Drag on the table, or use the buttons. Arrow keys work after you click the table. Sound stays off until you turn it on.</p>
-      </section>
-    </main>
-
-    <footer>
-      <p>Stay peachy. · Honolulu, Hawaii · Made with love · 18+</p>
-    </footer>
+        </section>
+      </main>
+    </div>
   </div>
 
   <dialog id="lightbox" aria-label="Card preview">
